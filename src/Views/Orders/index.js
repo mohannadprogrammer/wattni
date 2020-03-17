@@ -9,36 +9,37 @@ import {
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
+import Screen from '../../HOC/Screen'
 
 function Orders() {
     return (
-        // <NavigationContainer>
+        <Screen>
+            <Tab.Navigator
+                // style={{
+                //     color: colors.green_color2,
+                //     backgroundColor: colors.gray
+                // }}
 
-        <Tab.Navigator
-            // style={{
-            //     color: colors.green_color2,
-            //     backgroundColor: colors.gray
-            // }}
-           
-            tabBarOptions={{
-                activeTintColor:colors.green_color2,
-                inactiveTintColor:colors.green_color2,
-                
-                style :{
-                    backgroundColor:colors.black_gray,
-                    borderColor:colors.green_color2,
-                },
-                activeTintColor: colors.green_color2,
-            }
-            }
-            initialRouteName="الطلبات الحالية"
-        >
-            <Tab.Screen name="الطلبات المفضلة" component={Text} />
-            <Tab.Screen name="الطلبات السابقة" component={Text} />
-            <Tab.Screen name="الطلبات الحالية" component={Text} />
-        </Tab.Navigator>
+                tabBarOptions={{
+                    activeTintColor: colors.green_color2,
+                    inactiveTintColor: colors.green_color2,
 
-        // </NavigationContainer>
+                    style: {
+                        backgroundColor: colors.black_gray,
+                        borderColor: colors.green_color2,
+                    },
+                    activeTintColor: colors.green_color2,
+                }
+                }
+                initialRouteName="الطلبات الحالية"
+            >
+                <Tab.Screen name="الطلبات المفضلة" component={Text} />
+                <Tab.Screen name="الطلبات السابقة" component={Text} />
+                <Tab.Screen name="الطلبات الحالية" component={Text} />
+            </Tab.Navigator>
+
+
+        </Screen>
     );
 }
 

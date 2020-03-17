@@ -3,37 +3,42 @@ import { Text, StyleSheet, View, TextInput, TouchableOpacity } from 'react-nativ
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import CodeInput from 'react-native-confirmation-code-input'
+
+import Screen from '../../HOC/Screen'
 export default class index extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.Boxcontainer}>
+            <Screen>
+                <View style={styles.container}>
+                    <View style={styles.Boxcontainer}>
 
-                    <Text style={styles.text}>ادخل رمز التحقق المرسل على جوالك</Text>
-                    <View style={styles.inputHolder}>
-                        <CodeInput
-                            ref="codeInputRef2"
-                            keyboardType="numeric"
-                            codeLength={4}
-                            space={30}
-                            size={15}
-                            className='border-b'
-                            compareWithCode='1234'
-                            autoFocus={false}
-                            codeInputStyle={{ flex:0 , justifyContent:"center", borderColor:"gray",fontWeight: '800',color:"black"}}
-                        onFulfill={(isValid, code) => alert("sldlfsd")}
-                        />
-                        <Icon name="phone" size={30} color={colors.green_color}  style={{alignItems:"center"}}/>
-                        
+                        <Text style={styles.text}>ادخل رمز التحقق المرسل على جوالك</Text>
+                        <View style={styles.inputHolder}>
+                            <CodeInput
+                                ref="codeInputRef2"
+                                keyboardType="numeric"
+                                codeLength={4}
+                                space={30}
+                                size={15}
+                                className='border-b'
+                                compareWithCode='1234'
+                                autoFocus={false}
+                                codeInputStyle={{ flex: 0, justifyContent: "center", borderColor: "gray", fontWeight: '800', color: "black" }}
+                                onFulfill={(isValid, code) => alert("sldlfsd")}
+                            />
+                            <Icon name="phone" size={30} color={colors.green_color} style={{ alignItems: "center" }} />
+
+                        </View>
+                        <Text style={styles.Massagetext}>لم يصلك الكود خلال 60 ثانية؟اعادة طلب الركز</Text>
                     </View>
-                    <Text style={styles.Massagetext}>لم يصلك الكود خلال 60 ثانية؟اعادة طلب الركز</Text>
+
+                    <TouchableOpacity style={styles.button}  >
+                        <Text style={styles.Buttontext}>متابعة</Text>
+                    </TouchableOpacity>
+
                 </View>
+            </Screen>
 
-                <TouchableOpacity style={styles.button}  >
-                    <Text style={styles.Buttontext}>متابعة</Text>
-                </TouchableOpacity>
-
-            </View>
         )
     }
 }
@@ -64,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 0,
         flexDirection: "row",
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         borderColor: colors.gray,
         borderWidth: 2,
         borderRadius: 5,

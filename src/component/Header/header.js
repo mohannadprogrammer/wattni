@@ -18,7 +18,9 @@ export default class HeaderView extends Component {
         <Header androidStatusBarColor={colors.green_color2} style={styles.header}>
           <Left style={{flex: 1}}>
             <Button transparent>
-              <Icon name="cart" onPress={()=>this.props.navigation.navigate("chart")} />
+              <Icon name="cart"
+              
+               />
             </Button>
           </Left>
           <Body style={{flex: 1, alignSelf: 'center'}}>

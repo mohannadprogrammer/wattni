@@ -9,6 +9,8 @@ import {
 
 
 import { OffersBox } from "../../component"
+import Screen from '../../HOC/Screen'
+
 class Index extends Component {
     constructor(props) {
         super(props)
@@ -17,7 +19,8 @@ class Index extends Component {
         }
     }
     render() {
-        return <View style={styles.container}>
+        return (<Screen>
+            <View style={styles.container}>
             <View style={styles.pageName}>
                 <Text style={styles.pageNameText}>العروض</Text>
 
@@ -36,7 +39,9 @@ class Index extends Component {
                 
             </ScrollView>
 
-        </View>;
+        </View>
+        </Screen>)
+        ;
     }
 }
 const colors = require('../../assest/colors')
