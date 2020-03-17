@@ -28,13 +28,13 @@ const Cart = () => {
             <Text>16.00 <Text style={{color:colors.currance}}>ر.س</Text></Text>
             <View style={styles.quntatyView}>
                 <View style={styles.operation}>
-                    <Text style={{ color: colors.yallow, top: -2, fontSize: 30 }}>-</Text>
+                    <Text style={{ color: colors.currance, top: -2, fontSize: 30 }}>-</Text>
                 </View>
                 <View style={styles.countView}>
                     <Text >0</Text>
                 </View>
                 <View style={styles.operation}>
-                    <Text style={{ color: colors.yallow, top: -1, fontSize: 20 }}>+</Text>
+                    <Text style={{ color: colors.currance, top: -1, fontSize: 20 }}>+</Text>
                 </View>
             </View>
         </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         borderRadius: 15,
+        marginVertical:5,
         // alignItems:"sp",
         padding: 10
     },
@@ -88,7 +89,6 @@ const styles = StyleSheet.create({
         height:20,
         borderRadius: 10,
         padding:3,
-        // top:-15
         
 
     },

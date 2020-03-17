@@ -5,6 +5,7 @@ import Product from "./Product/product"
 import OffersBox from './OfersBox/offerBox'
 import Header from './Header/header'
 import Cart from './Cart/cart'
+import Button from './Button/button'
 // eslint-disable-next-line prettier/prettier
 module.exports ={
     Toolbar
@@ -14,4 +15,5 @@ module.exports ={
     ,OffersBox
     ,Header
     ,Cart
+    ,Button 
 }

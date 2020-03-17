@@ -5,16 +5,20 @@ export default class Button extends Component {
   render() {
     return (
       <TouchableOpacity style={styles.customButton}>
-        {this.props.children}
+                        <Text style={{color:colors.box_backgroud ,fontSize:20}}>
+        {this.props.name}
+
+                        </Text>
       </TouchableOpacity>
     );
   }
 }
-
+const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
   customButton: {
-    backgroundColor: 'green',
-    padding: 15,
+    backgroundColor: colors.green_color2,
+    padding: 10,
+    marginVertical:20,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',

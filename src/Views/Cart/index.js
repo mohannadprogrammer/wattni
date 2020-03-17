@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native'
 
-import {Cart }from '../../component'
+import {Cart ,Button }from '../../component'
 
 import Screen from '../../HOC/Screen'
 export default class index extends Component {
@@ -10,9 +10,13 @@ export default class index extends Component {
             <Screen
                 name="سلة المشتريات"
             >
-                <View style={{padding:30}}>
+                <View style={{padding:30 ,alignItems:"center" }}>
                     <Cart></Cart>
-                </View>
+                    <Cart></Cart>
+                    <Button name ="أضافة عناصر">
+                    </Button>
+
+                </View >
                 
             </Screen>
 
