@@ -18,7 +18,8 @@ import {
   Offers,
   Options,
   Orders,
-  Cart
+  Cart,
+  CallCenter
 } from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -31,6 +32,7 @@ function Chart (){
       <Stack.Navigator
         headerMode="none"
       >
+        <Stack.Screen name="callcenter" component={CallCenter} />
         <Stack.Screen name="chart" component={Cart} />
 
         <Stack.Screen name="المنتجات" component={Main} />

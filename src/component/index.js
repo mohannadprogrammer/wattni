@@ -6,7 +6,8 @@ import OffersBox from './OfersBox/offerBox'
 import Header from './Header/header'
 import Cart from './Cart/cart'
 import Button from './Button/button'
-// eslint-disable-next-line prettier/prettier
+import Dilervary from './DilevaryForm/dilevary'
+//module import all componenet 
 module.exports ={
     Toolbar
     ,LanguageBox
@@ -15,5 +16,6 @@ module.exports ={
     ,OffersBox
     ,Header
     ,Cart
-    ,Button 
+    ,Button
+    ,Dilervary
 }

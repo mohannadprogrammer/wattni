@@ -9,6 +9,7 @@ import {
   Right,
   Body,
   Icon,
+  Badge
 } from 'native-base';
 
 export default class HeaderView extends Component {
@@ -21,13 +22,16 @@ export default class HeaderView extends Component {
               <Icon name="cart"
 
               />
+              <Badge danger style={{height:20,width:20}}>
+                <Text>2</Text>
+              </Badge>
             </Button>
           </Left>
-          <Body style={{ }}>
-            
+          <Body style={{}}>
+
             <Title style={styles.headerTitle}>تطبيق مياه وطني</Title>
             <Title style={styles.headerTitle}>
-              
+
               {this.props.name}
             </Title>
           </Body>
@@ -41,7 +45,7 @@ const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.green_color2,
-    height:70
+    height: 70
   },
   headerTitle: {
     color: '#fff',

@@ -9,6 +9,7 @@ import Offers from "./Offers"
 import Options from './Options'
 import Orders from './Orders'
 import Cart from './Cart'
+import CallCenter from './CallCenter/CallCenter'
 module.exports= {
     Main,
     SocialMedia,
@@ -19,5 +20,6 @@ module.exports= {
     Offers,
     Options,
     Orders,
-    Cart
+    Cart,
+    CallCenter
 }
