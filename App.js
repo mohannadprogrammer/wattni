@@ -26,6 +26,7 @@ class App extends Component {
  {/* <SliderView/> */}
 <MAinNavigation/>
  {/* <Order/> */}
+{/* <Text>alksdlfkasdfk</Text> */}
       </StateProvider>
       
     );

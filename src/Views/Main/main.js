@@ -10,12 +10,13 @@ import {
     SafeAreaView
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider'
-
-import {connect } from 'react-redux'
+import Screen from '../../HOC/Screen'
+import { connect } from 'react-redux'
 import { Product } from "../../component"
 class main extends Component {
     constructor(props) {
         super(props)
+
         this.state = {
             data: [
                 {
@@ -24,11 +25,11 @@ class main extends Component {
                     image: "../../../image/footer.png"
                 },
                 {
-                    key: "1",
+                    key: "2",
                     title: "nihs",
                     image: "../image/footer.png"
                 }, {
-                    key: "1",
+                    key: "3",
                     title: "nihs",
                     image: "../image/footer.png"
                 }
@@ -41,97 +42,54 @@ class main extends Component {
         </ImageBackground>
     );
     render() {
-alert(this.props.data)
+        console.log(this.props.data)
 
-        return <View style={styles.container}>
-            <View style={styles.pageName}>
-                <Text style={styles.pageNameText}>المنتجات</Text>
+        return<Screen>
+                 <View style={styles.container}>
+            
+            <View style={styles.pageName}
+                
+             >
+                <Text style={styles.pageNameText} onPress ={this.props.navigation.push("chart")}>المنتجات</Text>
 
             </View>
-            <ScrollView>
-                
-                <SafeAreaView style={{flex: 1}}>
+
+            <SafeAreaView style={{ flex: 1 }}>
                 <FlatList
-                    ListHeaderComponent={<View style={styles.sliderViewContainer} >
-                    <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
-                </View>}
-                    data={[
-                        {
-                            key:1,
-                            price: "100 ر.س",
-                            name: "مياة وطني 600 مل ",
-                            qunaty: "24"
+                    ListHeaderComponent={
+                        <View style={styles.sliderViewContainer} >
+                            <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
+                        </View>
+                    }
 
-                        },
-                        {
-                            key:2,
-                            price: "100 ر.س",
-                            name: "مياة وطني 600 مل ",
-                            qunaty: "24"
-
-                        },{
-                            key:1,
-                            price: "100 ر.س",
-                            name: "مياة وطني 600 مل ",
-                            qunaty: "24"
-
-                        },
-                        {
-                            key:2,
-                            price: "100 ر.س",
-                            name: "مياة وطني 600 مل ",
-                            qunaty: "24"
-
-                        },{
-                            key:1,
-                            price: "100 ر.س",
-                            name: "مياة وطني 600 مل ",
-                            qunaty: "24"
-
-                        },
-                        {
-                            key:2,
-                            price: "100 ر.س",
-                            name: "مياة وطني 600 مل ",
-                            qunaty: "24"
-
-                        }
-
-                    ]}
-                    style={{top:5 }}
+                    data={this.props.data.Product.products}
+                    style={{ top: 5 }}
                     numColumns={2}
                     ItemSeparatorComponent={() => (
-                        <View style={[ {marginLeft: 0}]} />
-                      )}
+                        <View style={[{ marginLeft: 0 }]} />
+                    )}
                     renderItem={(item, index, separator) => (
                         <Product
-                            data= {{
-                                key:2,
+                            data={{
+                                key: 2,
                                 price: "100 ر.س",
                                 name: "مياة وطني 600 مل ",
                                 qunaty: "24"
-    
+
                             }}
-                            
+
                         />
                     )}
 
 
                 />
-                </SafeAreaView>
-                {/* <Product
-                            data={{
-                                key:2,
-                                price: "100 ر.س",
-                                name: "مياة وطني 600 مل ",
-                                qunaty: "24"
-    
-                            }
-                            }/> */}
+            </SafeAreaView>
 
-            </ScrollView>
 
-        </View>;
+        </View>
+        </Screen>
+        
+       ;
     }
 }
 const colors = require('../../assest/colors')
@@ -166,7 +124,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-      data: state
+        data: state
     }
-  }
-export default connect (mapStateToProps) (main);
+}
+export default connect(mapStateToProps)(main);

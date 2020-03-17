@@ -2,16 +2,15 @@ import React from "react"
 
 import {
   StyleSheet,
-  View,
-  Text
 } from 'react-native'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   Header
 
-} from "react-native-elements";
+} from "../component";
 import {
   Main,
   Registration,
@@ -20,28 +19,31 @@ import {
   Options,
   Orders
 } from "../Views"
+import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function Chart (){
+    return (
+      <Stack.Navigator
+        headerMode="none"
+      >
+        <Stack.Screen name="المنتجات" component={Main} />
+
+        {/* <Stack.Screen name="chart" component={Test} /> */}
+
+
+        {/* <Stack.Screen c/> */}
+      </Stack.Navigator>
+    )
+}
 
 function MainNavigation() {
   return (
     <NavigationContainer>
-      <Header
-        statusBarProps={{ barStyle: 'light-content' }}
-        containerStyle={{
-          backgroundColor: '#25a96f',
-          justifyContent: 'space-around',
-        }}
-        leftComponent={<Icon
-          name='cartshopping'
-          color='#fff' />}
-        centerComponent={<View>
-          <Text>تطبيق وطني</Text>
-          <Text>الز~يسية</Text>
-        </View>}
-        centerComponent={{ text: 'تطبيق skdlkfsl وطني', style: { color: '#fff' } }}
-      />
+      
       <Tab.Navigator
         style={{
 
@@ -58,7 +60,6 @@ function MainNavigation() {
         })}
         initialRouteName="المنتجات"
         tabBarOptions={{
-          activeTintColor: 'region',
           inactiveTintColor: '#fff',
           tabStyle: {
             backgroundColor: "#25a96f",
@@ -72,7 +73,8 @@ function MainNavigation() {
         <Tab.Screen name="المزيد" component={Options} />
         <Tab.Screen name="الطلبات" component={Orders} />
         <Tab.Screen name="العروض" component={Offers} />
-        <Tab.Screen name="المنتجات" component={Main} />
+        <Tab.Screen name="المنتجات" component={Chart} />
+        
       </Tab.Navigator>
 
     </NavigationContainer>
