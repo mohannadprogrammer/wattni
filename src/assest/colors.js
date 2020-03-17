@@ -6,7 +6,8 @@ const colors = {
     box_backgroud :"#fff",
     gray:"#a8a8a8",
     black_gray:"#ecf0f1",
-    yallow:"#fff200"
+    yallow:"#E2E14C",
+    currance:"#E2E14C"
     //:""
     // main_text_color:"0bb7b0",
     

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import {
   Container,
   Header,
@@ -16,15 +16,20 @@ export default class HeaderView extends Component {
     return (
       <View>
         <Header androidStatusBarColor={colors.green_color2} style={styles.header}>
-          <Left style={{flex: 1}}>
+          <Left style={{ flex: 1 }}>
             <Button transparent>
               <Icon name="cart"
-              
-               />
+
+              />
             </Button>
           </Left>
-          <Body style={{flex: 1, alignSelf: 'center'}}>
+          <Body style={{ }}>
+            
             <Title style={styles.headerTitle}>تطبيق مياه وطني</Title>
+            <Title style={styles.headerTitle}>
+              
+              {this.props.name}
+            </Title>
           </Body>
           <Right />
         </Header>
@@ -36,6 +41,7 @@ const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.green_color2,
+    height:70
   },
   headerTitle: {
     color: '#fff',

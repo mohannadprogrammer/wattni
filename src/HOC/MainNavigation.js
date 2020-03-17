@@ -17,7 +17,8 @@ import {
   ConfirmationDetector,
   Offers,
   Options,
-  Orders
+  Orders,
+  Cart
 } from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -30,12 +31,10 @@ function Chart (){
       <Stack.Navigator
         headerMode="none"
       >
+        <Stack.Screen name="chart" component={Cart} />
+
         <Stack.Screen name="المنتجات" component={Main} />
 
-        {/* <Stack.Screen name="chart" component={Test} /> */}
-
-
-        {/* <Stack.Screen c/> */}
       </Stack.Navigator>
     )
 }
@@ -61,6 +60,7 @@ function MainNavigation() {
         initialRouteName="المنتجات"
         tabBarOptions={{
           inactiveTintColor: '#fff',
+          activeTintColor:"black",
           tabStyle: {
             backgroundColor: "#25a96f",
             borderLeftColor: "#fff",

@@ -42,15 +42,16 @@ class main extends Component {
         </ImageBackground>
     );
     render() {
-        console.log(this.props.data)
 
-        return<Screen>
+        return<Screen
+            name="water water"
+        >
                  <View style={styles.container}>
             
             <View style={styles.pageName}
                 
              >
-                <Text style={styles.pageNameText} onPress ={this.props.navigation.push("chart")}>المنتجات</Text>
+                <Text style={styles.pageNameText} >المنتجات</Text>
 
             </View>
 

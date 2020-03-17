@@ -10,7 +10,9 @@ import {Header }from '../component'
 const Screen = (props) => {
     
     return <View style={style.container}>
-        <Header/>
+        <Header
+            name ={props.name}
+        />
 
         {props.children}
 

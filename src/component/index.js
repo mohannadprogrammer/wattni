@@ -4,6 +4,7 @@ import MassageCard from "./MassageCard/massageCard"
 import Product from "./Product/product"
 import OffersBox from './OfersBox/offerBox'
 import Header from './Header/header'
+import Cart from './Cart/cart'
 // eslint-disable-next-line prettier/prettier
 module.exports ={
     Toolbar
@@ -12,4 +13,5 @@ module.exports ={
     ,Product
     ,OffersBox
     ,Header
+    ,Cart
 }

@@ -8,6 +8,7 @@ import ConfirmationDetector from "./ConfirmationDetector"
 import Offers from "./Offers"
 import Options from './Options'
 import Orders from './Orders'
+import Cart from './Cart'
 module.exports= {
     Main,
     SocialMedia,
@@ -17,5 +18,6 @@ module.exports= {
     ConfirmationDetector,
     Offers,
     Options,
-    Orders
+    Orders,
+    Cart
 }
