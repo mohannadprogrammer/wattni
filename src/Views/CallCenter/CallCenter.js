@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {Icon} from 'native-base';
-// import HeaderView from '../header';
 import {
   MassageCard,
   Button,
   
 } from '../../component';
 import Screen from '../../HOC/Screen'
-// import { colors } from 'react-native-elements';
 export default class CallCenter extends Component {
   render() {
     return (
       <Screen>
       <View style={styles.body}>
-        {/* <HeaderView /> */}
         <View style={styles.wrapper}>
           <MassageCard>
             <View style={styles.title}>

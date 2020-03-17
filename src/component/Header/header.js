@@ -23,7 +23,7 @@ export default class HeaderView extends Component {
 
               />
               <Badge danger style={{height:20,width:20}}>
-                <Text>2</Text>
+                <Text style={{color:colors.box_backgroud}}>2</Text>
               </Badge>
             </Button>
           </Left>
