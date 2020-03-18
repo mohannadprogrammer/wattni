@@ -13,7 +13,8 @@ const LanguageSellector = (props) => {
     return <Adv>
 
         <Text style={style.en}>اختار اللغة المناسبة لك لاستعمال التطبيق , كما يمكنك تغير اللغة لاحقا من الخيارات داخل التطبيق</Text>
-        <LanguageBox/>
+        <LanguageBox
+         callBack ={()=>{props.navigation.navigate("slider")}}/>
         <Text style={style.ar}>حياة و تقاء </Text>
     </Adv>;
 };

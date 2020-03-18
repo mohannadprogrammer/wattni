@@ -10,6 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import {
   Main,
+  SocialMedia,
+  LanguageSellector,
   Registration,
   ConfirmationDetector,
   Offers,
@@ -17,7 +19,8 @@ import {
   Orders,
   Cart,
   CallCenter,
-  Payment
+  Payment,
+  SliderView
 } from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -46,10 +49,32 @@ function Chart (props){
       </Stack.Navigator>
     )
 }
+function MainStack (props){
+  // console.log(props);
+
+    return (
+    <NavigationContainer>
+
+      <Stack.Navigator
+        headerMode="none"
+        
+      >
+        {/* <Stack.Screen name="social" component={SocialMedia} /> */}
+
+        <Stack.Screen name="language" component={LanguageSellector} />
+        <Stack.Screen name="slider" component={SliderView} />
+
+        <Stack.Screen name="navigation" component={MainNavigation} />
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
+
+    )
+}
 
 function MainNavigation(props) {
   return (
-    <NavigationContainer>
       
       <Tab.Navigator
         style={{
@@ -85,7 +110,6 @@ function MainNavigation(props) {
         
       </Tab.Navigator>
 
-    </NavigationContainer>
   );
 }
 
@@ -96,4 +120,4 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   }
 })
-export default MainNavigation;
+export default MainStack;

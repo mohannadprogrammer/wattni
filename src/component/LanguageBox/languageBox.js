@@ -5,7 +5,7 @@ import { View ,StyleSheet
 import colors from '../../assest/colors'
 
 
-const languageBox = () => {
+const languageBox = (props) => {
     
     return <View style={style.container}>
             
@@ -13,7 +13,9 @@ const languageBox = () => {
                 <Text style={style.text}>English</Text>
             </View>
             
-            <View style={style.languageBox}>
+            <View style={style.languageBox}
+                onTouchStart={props.callBack}
+            >
                 <Text style={style.text}>العربية</Text>
             </View>
             

@@ -16,7 +16,9 @@ export default class HeaderView extends Component {
   render() {
     return (
       <View>
-        <Header androidStatusBarColor={colors.green_color2} style={styles.header}>
+        <Header
+         androidStatusBarColor={colors.green_color2} 
+         style={styles.header}>
           <Left style={{ flex: 1 }}>
             <Button transparent
              onPress ={this.props.action}

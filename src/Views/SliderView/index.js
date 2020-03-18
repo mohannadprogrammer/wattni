@@ -24,16 +24,24 @@ export default class SliderView extends Component {
       }
   }
   _renderItem  =props=>(
-         <ImageBackground style={styles.container}  resizeMode="contain" source={require("../../image/footer.png")}>
-            <View onClic>
-                <Text style={styles.text}>تخطي</Text>
-            </View>
+         <ImageBackground style={styles.container}  resizeMode="stretch" source={require("../../image/logo.png")}>
+           
          </ImageBackground>
   );
+  _next =()=>(
+    <View >
+    <Text style={styles.text}>تخطي</Text>
+    </View>
+  )
   render() {
 
     return (
-      <AppIntroSlider slides={this.state.data} renderItem={this._renderItem}  />
+      <AppIntroSlider
+       slides={this.state.data} 
+       renderItem={this._renderItem} 
+       renderDoneButton ={this._next}
+       renderNextButton={ this._next}
+       onDone={()=>this.props.navigation.navigate("navigation")} />
     )
   }
 }
@@ -43,12 +51,11 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:"flex-end",
         width:Dimensions.get('screen').width,
-        height:Dimensions.get("screen").height
+        height:Dimensions.get("screen").height,
         // backgroundColor:"black"
     },
     text:{
         color:"#0bb7b0",
         fontSize:30,
-        padding:24
     }
 })
