@@ -55,6 +55,7 @@ export default class index extends Component {
 
 const styles = StyleSheet.create({
     body: {
+        flex:1,
         backgroundColor: 'whitesmoke',
         height: '100%',
         width: '100%',

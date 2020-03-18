@@ -44,10 +44,10 @@ export default class product extends Component {
 const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
     container:{
-        // flex:1, 
+        flex:1, 
         // justifyContent:"center",
         alignItems:'center',
-        width:200
+        // width:200
         // backgroundColor:"red"
 
     },

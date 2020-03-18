@@ -18,8 +18,9 @@ export default class Button extends Component {
 const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
   customButton: {
+    flex:1,
     backgroundColor: colors.green_color2,
-    padding: 10,
+    padding: 20,
     marginVertical:20,
     borderRadius: 5,
     justifyContent: 'center',

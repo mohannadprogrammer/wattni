@@ -43,58 +43,58 @@ class main extends Component {
     );
     render() {
 
-        return<Screen
+        return <Screen
             name="الرئسية"
-            callBack ={()=>{
+            callBack={() => {
                 this.props.navigation.navigate("chart");
             }}
         >
-                 <View style={styles.container}>
-            
-            <View style={styles.pageName}
-                
-             >
-                <Text style={styles.pageNameText} >المنتجات</Text>
+            <View style={styles.container}>
+
+                <View style={styles.pageName}
+
+                >
+                    <Text style={styles.pageNameText} >المنتجات</Text>
+
+                </View>
+
+                <SafeAreaView style={{ flex: 1 }}>
+                    <FlatList
+                        style={{flex:2 , backgroundColor:"red"}}
+                        ListHeaderComponent={
+                            <View style={styles.sliderViewContainer} >
+                                <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
+                            </View>
+                        }
+
+                        data={this.props.data.Product.products}
+                        style={{ top: 5 }}
+                        numColumns={2}
+                        ItemSeparatorComponent={() => (
+                            <View style={[{ marginLeft: 0 }]} />
+                        )}
+                        renderItem={(item, index, separator) => (
+                            <Product
+                                data={{
+                                    key: 2,
+                                    price: "100 ر.س",
+                                    name: "مياة وطني 600 مل ",
+                                    qunaty: "24"
+
+                                }}
+
+                            />
+                        )}
+
+
+                    />
+                </SafeAreaView>
+
 
             </View>
-
-            <SafeAreaView style={{ flex: 1 }}>
-                <FlatList
-                    style={{flex:1}}
-                    ListHeaderComponent={
-                        <View style={styles.sliderViewContainer} >
-                            <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
-                        </View>
-                    }
-
-                    data={this.props.data.Product.products}
-                    style={{ top: 5 }}
-                    numColumns={2}
-                    ItemSeparatorComponent={() => (
-                        <View style={[{ marginLeft: 0 }]} />
-                    )}
-                    renderItem={(item, index, separator) => (
-                        <Product
-                            data={{
-                                key: 2,
-                                price: "100 ر.س",
-                                name: "مياة وطني 600 مل ",
-                                qunaty: "24"
-
-                            }}
-
-                        />
-                    )}
-
-
-                />
-            </SafeAreaView>
-
-
-        </View>
         </Screen>
-        
-       ;
+
+            ;
     }
 }
 const colors = require('../../assest/colors')
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     pageName: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: colors.black_gray,
         alignItems: "center"
     },
@@ -121,7 +121,8 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 200,//Dimensions.get("window").height,
         width: Dimensions.get("window").width - 20,
-        marginRight: 10
+        marginRight: 10,
+        // backgroundColor:"red"
 
 
     }

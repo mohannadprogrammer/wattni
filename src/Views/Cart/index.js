@@ -11,7 +11,7 @@ export default class index extends Component {
                 name="سلة المشتريات"
             >
                 <ScrollView>
-                <View style={{padding:30 ,alignItems:"center" }}>
+                <View style={{flex:1 ,alignItems:"center" }}>
                     <Cart></Cart>
                     <Cart></Cart>
                     <Button name ="أضافة عناصر">
