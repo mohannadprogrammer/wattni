@@ -7,11 +7,13 @@ import {
 import {Header }from '../component'
 
 
-const Screen = (props) => {
+const Screen = ({name ,callBack ,...props}) => {
     
     return <View style={style.container}>
         <Header
-            name ={props.name}
+            name ={name}
+            // action ={()=>alert("what the fuck")}
+            action ={callBack}
         />
 
         {props.children}

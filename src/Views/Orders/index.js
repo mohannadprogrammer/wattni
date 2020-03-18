@@ -11,9 +11,14 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 const Tab = createMaterialTopTabNavigator();
 import Screen from '../../HOC/Screen'
 
-function Orders() {
+function Orders(props) {
+    console.log(props)
     return (
-        <Screen>
+        <Screen
+        callBack ={()=>{
+            props.navigation.navigate("chart");
+        }}
+        >
             <Tab.Navigator
                 // style={{
                 //     color: colors.green_color2,

@@ -6,7 +6,7 @@ export default class MassageCard extends Component {
     return (
       <View style={styles.box}>
         <View style={styles.position}>
-    <Text>{this.props.title}</Text>
+    <Text style={{color:colors.box_backgroud, fontSize:20}}>{this.props.title}</Text>
         </View>
         {this.props.children}
       </View>

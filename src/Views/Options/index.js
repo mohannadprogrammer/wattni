@@ -5,7 +5,11 @@ import Screen from "../../HOC/Screen"
 export default class index extends Component {
     render() {
         return (
-            <Screen>
+            <Screen
+                callBack={() => {
+                    this.props.navigation.navigate("chart");
+                }}
+            >
                 <View style={styles.card}>
                     <TouchableOpacity style={styles.option}>
                         <Text style={styles.text}>تعديل الملف الشخصي </Text>

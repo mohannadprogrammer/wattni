@@ -19,7 +19,11 @@ class Index extends Component {
         }
     }
     render() {
-        return (<Screen>
+        return (<Screen
+            callBack ={()=>{
+                this.props.navigation.navigate("chart");
+            }}
+        >
             <View style={styles.container}>
             <View style={styles.pageName}>
                 <Text style={styles.pageNameText}>العروض</Text>

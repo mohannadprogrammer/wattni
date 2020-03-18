@@ -18,9 +18,11 @@ export default class HeaderView extends Component {
       <View>
         <Header androidStatusBarColor={colors.green_color2} style={styles.header}>
           <Left style={{ flex: 1 }}>
-            <Button transparent>
+            <Button transparent
+             onPress ={this.props.action}
+            >
               <Icon name="cart"
-
+               
               />
               <Badge danger style={{height:20,width:20}}>
                 <Text style={{color:colors.box_backgroud}}>2</Text>

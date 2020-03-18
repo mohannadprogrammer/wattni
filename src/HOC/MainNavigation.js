@@ -7,10 +7,7 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import {
-  Header
 
-} from "../component";
 import {
   Main,
   Registration,
@@ -19,36 +16,45 @@ import {
   Options,
   Orders,
   Cart,
-  CallCenter
+  CallCenter,
+  Payment
 } from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
+import Screen from '../HOC/Screen';
+
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function Chart (){
+function Chart (props){
+  // console.log(props);
+
     return (
       <Stack.Navigator
         headerMode="none"
+        
       >
+
+        <Stack.Screen name="payment" component={Payment} />
         <Stack.Screen name="callcenter" component={CallCenter} />
         <Stack.Screen name="chart" component={Cart} />
 
         <Stack.Screen name="المنتجات" component={Main} />
 
+
       </Stack.Navigator>
     )
 }
 
-function MainNavigation() {
+function MainNavigation(props) {
   return (
     <NavigationContainer>
       
       <Tab.Navigator
         style={{
 
-          backgroundColor: '#25a96f',
+          backgroundColor: colors.green_color2,
 
         }}
 
