@@ -1,0 +1,58 @@
+import { RadioButton } from 'react-native-paper';
+
+
+{/*****************************************/}
+                        <View style={{ width: "100%" }}>
+                            <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
+                                <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
+                                    <RadioButton
+                                        color="green"
+                                        uncheckedColor="#797979"
+                                        value="mada"
+                                        status={checked === 'mada' ? 'checked' : 'unchecked'}
+                                        onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }}
+                                    />
+                                    <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( مدى )</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
+                                    <Image resizeMode='contain' source={require('../../images/mada.png')}
+                                        style={{ width: 60, height: 30, margin: 5 }} /></View>
+                            </TouchableOpacity>
+
+                            {/*****************************************/}
+
+                            <TouchableOpacity onPress={() => { this.setState({ checked: 'sadad', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
+                                <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
+                                    <RadioButton
+                                        color="green"
+                                        uncheckedColor="#797979"
+                                        value="sadad"
+                                        status={checked === 'sadad' ? 'checked' : 'unchecked'}
+                                        onPress={() => { this.setState({ checked: 'sadad', radioValue: 2 }); }}
+                                    />
+                                    <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>الدفع بنظام سداد</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
+                                    <Image resizeMode='contain' source={require('../../images/sadad.png')}
+                                        style={{ width: 50, height: 30, margin: 5 }} /></View>
+                            </TouchableOpacity>
+
+                            {/*****************************************/}
+
+                            <TouchableOpacity onPress={() => { this.setState({ checked: 'visa', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
+                                <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
+                                    <RadioButton
+                                        color="green"
+                                        uncheckedColor="#797979"
+                                        value="visa"
+                                        status={checked === 'visa' ? 'checked' : 'unchecked'}
+                                        onPress={() => { this.setState({ checked: 'visa', radioValue: 2 }); }}
+                                    />
+                                    <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>الدفع ببطاقة الإئتمان</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
+                                    <Image resizeMode='contain' source={require('../../images/visa.png')}
+                                        style={{ width: 60, height: 30, margin: 5 }} /></View>
+                            </TouchableOpacity>
+                        </View>
+                        {/*****************************************/}

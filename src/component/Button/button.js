@@ -4,7 +4,9 @@ import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 export default class Button extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.customButton}>
+      <TouchableOpacity style={styles.customButton}
+        onPress={this.props.onClick}
+      >
                         <Text style={{color:colors.box_backgroud ,fontSize:20}}>
         {this.props.name}
 
@@ -22,6 +24,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '43%',
+    // width: '43%',
   },
 });

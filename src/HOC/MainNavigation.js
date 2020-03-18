@@ -38,12 +38,14 @@ function Chart (props){
         headerMode="none"
         
       >
+        <Stack.Screen name="main" component={Main} />
 
         <Stack.Screen name="payment" component={Payment} />
         <Stack.Screen name="callcenter" component={CallCenter} />
         <Stack.Screen name="chart" component={Cart} />
+        <Stack.Screen name="regist" component={Registration} />
+        <Stack.Screen name="confirm" component={ConfirmationDetector} />
 
-        <Stack.Screen name="المنتجات" component={Main} />
 
 
       </Stack.Navigator>

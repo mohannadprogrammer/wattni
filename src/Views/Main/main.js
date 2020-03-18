@@ -44,7 +44,10 @@ class main extends Component {
     render() {
 
         return<Screen
-            name="water water"
+            name="الرئسية"
+            callBack ={()=>{
+                this.props.navigation.navigate("chart");
+            }}
         >
                  <View style={styles.container}>
             
@@ -57,6 +60,7 @@ class main extends Component {
 
             <SafeAreaView style={{ flex: 1 }}>
                 <FlatList
+                    style={{flex:1}}
                     ListHeaderComponent={
                         <View style={styles.sliderViewContainer} >
                             <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     pageName: {
-        flex: 0,
+        flex: 1,
         backgroundColor: colors.black_gray,
         alignItems: "center"
     },
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     sliderViewContainer: {
-        flex: 0,
+        flex: 1,
         height: 200,//Dimensions.get("window").height,
         width: Dimensions.get("window").width - 20,
         marginRight: 10

@@ -18,6 +18,10 @@ export default class index extends Component {
                     </Button>
 
                     <Dilervary></Dilervary>
+                    <Button
+                        onClick={()=>this.props.navigation.navigate("regist")}
+                        name ="تنفيز الطلب">
+                    </Button>
 
                 </View>
                 </ScrollView>
