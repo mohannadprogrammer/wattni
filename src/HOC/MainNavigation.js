@@ -20,7 +20,9 @@ import {
   Cart,
   CallCenter,
   Payment,
-  SliderView
+  SliderView,
+  OrderState,
+  LocationDetector
 } from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -63,7 +65,7 @@ function MainStack (props){
       >
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
-        <Stack.Screen name="language" component={LanguageSellector} />
+        <Stack.Screen name="language" component={Payment} />
         <Stack.Screen name="slider" component={SliderView} />
 
         <Stack.Screen name="navigation" component={MainNavigation} />

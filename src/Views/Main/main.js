@@ -60,7 +60,7 @@ class main extends Component {
 
                 <SafeAreaView style={{ flex: 1 }}>
                     <FlatList
-                        style={{flex:2 , backgroundColor:"red"}}
+                        style={{flex:1 , backgroundColor:"red"}}
                         ListHeaderComponent={
                             <View style={styles.sliderViewContainer} >
                                 <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
@@ -70,6 +70,7 @@ class main extends Component {
                         data={this.props.data.Product.products}
                         style={{ top: 5 }}
                         numColumns={2}
+                        
                         ItemSeparatorComponent={() => (
                             <View style={[{ marginLeft: 0 }]} />
                         )}

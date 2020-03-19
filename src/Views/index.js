@@ -11,6 +11,8 @@ import Orders from './Orders'
 import Cart from './Cart'
 import CallCenter from './CallCenter/CallCenter'
 import Payment from './Payment'
+import OrderState from './OrderState'
+import LocationDetector from './LocationDetector'
 module.exports= {
     Main,
     SocialMedia,
@@ -23,5 +25,7 @@ module.exports= {
     Orders,
     Cart,
     CallCenter,
-    Payment
+    Payment,
+    OrderState,
+    LocationDetector
 }

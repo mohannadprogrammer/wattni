@@ -1,21 +1,45 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Icon } from "native-base"
+function Operation(show) {
+  if (show) {
+    return (
+      <TouchableOpacity style={styles.delete}>
+        <Icon name="trashcan" type="Octicons" style={{ color: colors.box_backgroud, padding: 4, fontSize: 30 }} />
+      </TouchableOpacity>
+    )
+  } else {
+    return (null)
+  }
+}
+function Title(title,show) {
+  if (!show) {
+    return (
+      <View style={styles.position}>
+        <Text style={{ color: colors.box_backgroud, fontSize: 20 }}>{title}</Text>
+      </View>
+    )
+  } else {
+    return (null)
+  }
+}
+
 
 export default class MassageCard extends Component {
   render() {
     return (
       <View style={styles.box}>
-        <View style={styles.position}>
-    <Text style={{color:colors.box_backgroud, fontSize:20}}>{this.props.title}</Text>
-        </View>
+        {Title(this.props.title,this.props.Operation)}
         {this.props.children}
+        {Operation(this.props.Operation)}
       </View>
     );
   }
 }
-const colors = require ("../../assest/colors")
+const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
   box: {
+    flex:1,
     borderWidth: 2,
     borderColor: colors.green_color2,
     padding: 20,
@@ -32,11 +56,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    alignItems:"center",
+    alignItems: "center",
     height: 30,
     // width: 50,
-    paddingHorizontal:20,
+    paddingHorizontal: 20,
     backgroundColor: colors.green_color2,
     borderBottomRightRadius: 10,
   },
+  delete: {
+    position: "absolute",
+    height: 40,
+    width: 50,
+    bottom: 0,
+    left: 0,
+    alignItems: "center",
+    borderTopRightRadius: 8,
+    borderBottomLeftRadius: 5,
+    backgroundColor: colors.green_color2
+  }
 });
