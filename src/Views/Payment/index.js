@@ -11,7 +11,8 @@ import {
 import Screen from '../../HOC/Screen'
 
 import {
-    MassageCard
+    MassageCard,
+    Button
 } from '../../component'
 import { RadioButton } from 'react-native-paper'
 import { FlatList } from 'react-native-gesture-handler'
@@ -99,8 +100,8 @@ export default class index extends Component {
                                 style={{ margin: 20 }}
                                 title="اتمام الطلب"
                             >
-                                <View style={{ justifyContent: "flex-end" }}>
-                                    <Text>فضلاً اختار احدي  الوسائل التالية :</Text>
+                                <View style={{ flex:1,flexDirection:"row",justifyContent: "flex-end" ,paddingVertical:20 ,paddingRight:10}}>
+                                    <Text style={{flex:1 , color:colors.green_color , fontSize:15}}>فضلاً اختار احدي  الوسائل التالية :</Text>
                                 </View>
                                 <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
@@ -151,6 +152,12 @@ export default class index extends Component {
 
 
                             </MassageCard>
+
+                            <Button
+                                name="تنفيذ الطلب"
+                            >
+
+                            </Button>
                         </View>
 
                     </View>
@@ -172,6 +179,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         padding: 25,
+        marginVertical:10
     },
     details: {
         flex: 1,

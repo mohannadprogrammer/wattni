@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   customButton: {
     flex:1,
     backgroundColor: colors.green_color2,
-    padding: 20,
+    padding: 10,
     marginVertical:20,
     borderRadius: 5,
     justifyContent: 'center',

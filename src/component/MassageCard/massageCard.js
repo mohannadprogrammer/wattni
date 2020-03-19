@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
     alignItems: 'center',
+    margin:10,
   },
   position: {
     position: 'absolute',
