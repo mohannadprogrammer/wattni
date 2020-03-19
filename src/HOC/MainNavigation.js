@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-import {
+import Views ,{
   Main,
   SocialMedia,
   LanguageSellector,
@@ -23,7 +23,7 @@ import {
   SliderView,
   OrderState,
   LocationDetector
-} from "../Views"
+}  from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -65,7 +65,8 @@ function MainStack (props){
       >
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
-        <Stack.Screen name="language" component={Payment} />
+        {/* <Stack.Screen name="language" component={Payment} /> */}
+        <Stack.Screen name="language" component={Views.OrderState} />
         <Stack.Screen name="slider" component={SliderView} />
 
         <Stack.Screen name="navigation" component={MainNavigation} />

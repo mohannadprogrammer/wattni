@@ -1,6 +1,8 @@
 import Toolbar from './Toolbar/toolbar';
 import LanguageBox from './LanguageBox/languageBox'
 import MassageCard from "./MassageCard/massageCard"
+import OrderOps from './OrderOps/orderOps'
+import OrderMassage from './OrderMassage/orderMassage'
 import Product from "./Product/product"
 import OffersBox from './OfersBox/offerBox'
 import Header from './Header/header'
@@ -18,4 +20,6 @@ module.exports ={
     ,Cart
     ,Button
     ,Dilervary
+    ,OrderOps
+    ,OrderMassage
 }
