@@ -13,7 +13,7 @@ const ProductInitialState = {
             name: "مياة وطني 600 مل ",
             qunaty: "24"
 
-        } ,
+        },
         {
             key:3,
             price: "100 ر.س",

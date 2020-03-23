@@ -41,7 +41,7 @@ function Chart (props){
         
       >
         <Stack.Screen name="main" component={Main} />
-
+        <Stack.Screen name="orderState" component={Views.OrderState} />
         <Stack.Screen name="payment" component={Payment} />
         <Stack.Screen name="callcenter" component={CallCenter} />
         <Stack.Screen name="chart" component={Cart} />
@@ -66,7 +66,10 @@ function MainStack (props){
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
         {/* <Stack.Screen name="language" component={Payment} /> */}
-        <Stack.Screen name="language" component={Views.OrderState} />
+        {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
+        {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
+        {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
+        <Stack.Screen name="map" component={Test} />
         <Stack.Screen name="slider" component={SliderView} />
 
         <Stack.Screen name="navigation" component={MainNavigation} />

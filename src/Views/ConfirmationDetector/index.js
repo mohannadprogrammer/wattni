@@ -31,13 +31,16 @@ export default class index extends Component {
                         </View>
                         <Text style={styles.Massagetext}>لم يصلك الكود خلال 60 ثانية؟اعادة طلب الركز</Text>
                     </View>
-                    <Button
+                    {/* <Button
                         name="متابعة"
                         onClick={() => { this.props.navigation.navigate("payment") }}
-                    ></Button>
-                    {/* <TouchableOpacity style={styles.button}  >
+                    ></Button> */}
+                    <TouchableOpacity style={styles.button}  
+                    
+                        onPress={() => { this.props.navigation.navigate("payment") }}
+                    >
                         <Text style={styles.Buttontext}>متابعة</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
 
                 </View>
             </Screen>

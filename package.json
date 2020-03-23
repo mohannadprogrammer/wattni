@@ -23,16 +23,19 @@
     "react-native-confirmation-code-input": "^1.0.4",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "^1.6.0",
+    "react-native-maps": "^0.27.1",
     "react-native-paper": "^3.6.0",
     "react-native-progress-steps": "^1.2.9",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.3.0",
+    "react-native-step-indicator": "^0.0.11",
     "react-native-tab-view": "^2.13.0",
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-promise": "^0.6.0"
+    "redux-promise": "^0.6.0",
+    "rn-viewpager": "^1.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

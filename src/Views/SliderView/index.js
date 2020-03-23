@@ -12,11 +12,11 @@ export default class SliderView extends Component {
                   image:"../image/footer.png"
               },
               {
-                  key:"1",
+                  key:"2",
                   title:"nihs",
                   image:"../image/footer.png"
             },{
-                  key:"1",
+                  key:"3",
                   title:"nihs",
                   image:"../image/footer.png"
             }
@@ -45,7 +45,7 @@ export default class SliderView extends Component {
     )
   }
 }
-
+const  colors = require("../../assest/colors")
 const styles = StyleSheet.create({
     container:{
         flex:1,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         // backgroundColor:"black"
     },
     text:{
-        color:"#0bb7b0",
+        color:colors.green_color,
         fontSize:30,
     }
 })

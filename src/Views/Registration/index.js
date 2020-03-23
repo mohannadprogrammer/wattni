@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, TextInput,TouchableOpacity } from 'react-native'
-
+import Screen from "../../HOC/Screen"
 import {
     Button 
 }from "../../component"
@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 export default class index extends Component {
     render() {
         return (
+            <Screen>
             <View style={styles.container}>
                 <View style={styles.Boxcontainer}>
 
@@ -23,15 +24,16 @@ export default class index extends Component {
                     </View>
                     <Text style={styles.Massagetext}>سوف يصلك كود تحقق </Text>
                 </View>
-                <Button
-                    name ="متابعة"
-                    onClick={()=>{this.props.navigation.navigate("confirm")}}
-                ></Button>
-                {/* <TouchableOpacity style={styles.button}  >
+                
+                <TouchableOpacity style={styles.button} 
+                    onPress={()=>{this.props.navigation.navigate("confirm")}}
+                    
+                >
                     <Text style={styles.Buttontext}>متابعة</Text>
-                </TouchableOpacity> */}
+                </TouchableOpacity>
 
             </View>
+            </Screen>
         )
     }
 }

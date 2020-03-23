@@ -29,40 +29,23 @@ export default class index extends Component {
                 <ScrollView style={styles.body}>
                     <View style={styles.wrapper}>
                         {/* <View style={{ flex: 1 }}> */}
-                            <ProgressSteps
-                                progressBarColor={colors.green_color2}
-                                borderStyle="none"
-                                borderWidth={2}
+                        <ProgressSteps
+                            progressBarColor={colors.green_color2}
+                            borderStyle="none"
+                            borderWidth={2}
 
-                                borderStyle="dash"
+                            borderStyle="dash"
+                        >
+                            <ProgressStep
+
+                                // nextBtnStyle={{ display: "none" }}
+                                // previousBtnStyle={{ display: "none" }}
+                                label="First Step"
                             >
-                                <ProgressStep
-
-                                    // nextBtnStyle={{ display: "none" }}
-                                    // previousBtnStyle={{ display: "none" }}
-                                    label="First Step"
+                                <OrderOps
+                                    title="تفاصيل الطلب"
                                 >
-                                    <OrderOps
-                                        title ="تفاصيل الطلب"
-                                    >
-                                        <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View>
-                                        
-                                    </OrderOps>
-
-                                    <OrderMassage
-                                        title="تقييم الطلب "
-                                    >
-                                        <View style={{ alignItems: 'center' }}>
+                                    <View style={{ alignItems: 'center' }}>
                                         <Text>This is the content within step 2!</Text>
                                     </View><View style={{ alignItems: 'center' }}>
                                         <Text>This is the content within step 2!</Text>
@@ -74,34 +57,88 @@ export default class index extends Component {
                                         <Text>This is the content within step 2!</Text>
                                     </View>
 
-                                    </OrderMassage>
+                                </OrderOps>
 
-                                    <Button 
-                                        name ="عودة الى الرئسية">
+                                <OrderMassage
+                                    title="تقييم الطلب "
+                                >
+                                    <View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View>
 
-                                    </Button>
-                                    {/* <View style={{ alignItems: 'center' }}>
+                                </OrderMassage>
+
+                                <Button
+                                    name="عودة الى الرئسية">
+
+                                </Button>
+                                {/* <View style={{ alignItems: 'center' }}>
                                         
                                     </View> */}
-                                </ProgressStep>
-                                <ProgressStep label="Second Step">
+                            </ProgressStep>
+                            <ProgressStep label="Second Step">
+                                <View style={{ alignItems: 'center' }}>
+                                    <Text>This is the content within step 2!</Text>
+                                </View>
+                            </ProgressStep>
+                            <ProgressStep label="Third Step">
+                                <View style={{ alignItems: 'center' }}>
+                                    <Text>This is the content within step 3!</Text>
+                                </View>
+                            </ProgressStep>
+                            <ProgressStep label="four Step">
+                                <OrderOps
+                                    title="تفاصيل الطلب"
+                                >
                                     <View style={{ alignItems: 'center' }}>
                                         <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
                                     </View>
-                                </ProgressStep>
-                                <ProgressStep label="Third Step">
-                                    <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 3!</Text>
-                                    </View>
-                                </ProgressStep>
-                                <ProgressStep label="four Step">
-                                    <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 3!</Text>
-                                    </View>
-                                </ProgressStep>
-                            </ProgressSteps>
 
-                            {/* <CustomPrograss>
+                                </OrderOps>
+                                <OrderMassage
+                                    title="مبروك"
+                                >
+                                    <View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View><View style={{ alignItems: 'center' }}>
+                                        <Text>This is the content within step 2!</Text>
+                                    </View>
+
+                                </OrderMassage>
+
+                                <Button
+                                    name="عودة الى الرئسية">
+
+                                </Button>
+                                    
+                            </ProgressStep>
+                        </ProgressSteps>
+                        <View style={{flex:1 ,contant:1 ,width:"100%", height :"100%",backgroundColor:"red"}}>
+                                    <Text>skldfasd</Text>
+</View>
+                        {/* <CustomPrograss>
                                 <Step
                                     name ="skks"
                                 >
@@ -129,9 +166,9 @@ const styles = StyleSheet.create({
         width: '100%',
     }, wrapper: {
         flex: 1,
-        width:"100%",
+        width: "100%",
         // justifyContent: 'space-around',
-        
+
         alignItems: 'flex-start',
         // padding: 25,
     },

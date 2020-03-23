@@ -27,17 +27,17 @@ const Dilevary = () => {
         <View style={styles.form}>
             <Item style={{ justifyContent: "flex-end" }}>
                 <Input placeholder='المدينة' style={{ textAlign: "right" }} />
-                <Icon active name='location-on' type="MaterialIcons" style={{ color: colors.green_color2 }} />
+                <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
             </Item>
             <Item style={{ justifyContent: "flex-end" }}>
                 <Input placeholder='الحي' style={{ textAlign: "right" }} />
-                <Icon active name='location-on' type="MaterialIcons" style={{ color: colors.green_color2 }} />
+                <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
             </Item>
             <Item style={{ justifyContent: "flex-end" }}>
                 <Input placeholder='موقع التواصبل على الخريطة' style={{ textAlign: "right" }} />
-                <Icon active name='location-on' type="MaterialIcons" style={{ color: colors.green_color2 }} />
+                <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
             </Item>
             <Item style={{ justifyContent: "flex-end" }}>
@@ -63,7 +63,7 @@ const Dilevary = () => {
             </ListItem>
             <Item style={{ justifyContent: "flex-end" }}>
                 <Input placeholder='لديك كود ترويجي ؟' style={{ textAlign: "right" }} />
-                <Icon active name='location-on' type="MaterialIcons" style={{ color: colors.green_color2 }} />
+                <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
             </Item>
             <Item style={{ justifyContent: "flex-end" }}>
