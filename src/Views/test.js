@@ -13,25 +13,27 @@ const labels = ["تم تسليم الطلب", "تم شحن الطلب", "تم ت
 
 const colors = require('../assest/colors');
 const customStyles = {
+  
   stepIndicatorSize: 60,
   currentStepIndicatorSize: 60,
   separatorStrokeWidth: 2,
   // separatorStrokeStyle: "dash",
   currentStepStrokeWidth: 3,
-  stepStrokeCurrentColor: colors.green_color2,
+  stepStrokeCurrentColor: colors.green_color,
+  // currentStepIndicatorLabelFontSize: 23,
+  stepIndicatorLabelCurrentColor: colors.green_color2,
+  stepIndicatorCurrentColor: colors.green_color2,
+  
   stepStrokeWidth: 3,
   stepStrokeFinishedColor: colors.green_color2,
-  stepStrokeUnFinishedColor: '#aaaaaa',
-  separatorFinishedColor: 'red',
-  separatorUnFinishedColor: '#aaaaaa',
-  stepIndicatorFinishedColor: '#fe7013',
-  stepIndicatorUnFinishedColor: '#ffffff',
-  stepIndicatorCurrentColor: '#ffffff',
+  stepStrokeUnFinishedColor: colors.green_color,
+  separatorFinishedColor: '#aaaaaa',
+  separatorUnFinishedColor: colors.green_color,
+  stepIndicatorFinishedColor:colors.box_backgroud,
+  stepIndicatorUnFinishedColor:colors.green_color2,
   stepIndicatorLabelFontSize: 23,
-  currentStepIndicatorLabelFontSize: 23,
-  stepIndicatorLabelCurrentColor: '#fe7013',
-  stepIndicatorLabelFinishedColor: '#ffffff',
-  stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+  stepIndicatorLabelFinishedColor: colors.green_color2,
+  stepIndicatorLabelUnFinishedColor: colors.green_color2,
   labelColor: '#999999',
   labelSize: 16,
   currentStepLabelColor: colors.green_color2
@@ -40,17 +42,19 @@ export default class test extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentPosition: 0
+      currentPosition: 2
     }
   }
 
   render() {
     return (
       <StepIndicator
+
         renderStepIndicator={this.renderStepIndicator}
         // customStyles={secondIndicatorStyles}
         // currentPosition={this.state.currentPage}
         stepCount={4}
+        currentPosition={this.state.currentPosition}
         onPress={this.onStepPress}
         customStyles={customStyles}
         //  renderStepIndicator="sdkjfkjsd"
