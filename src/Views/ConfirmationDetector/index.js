@@ -24,7 +24,7 @@ export default class index extends Component {
                                 compareWithCode='1234'
                                 autoFocus={false}
                                 codeInputStyle={{ flex: 0, justifyContent: "center", borderColor: "gray", fontWeight: '800', color: "black" }}
-                                onFulfill={(isValid, code) => alert("sldlfsd")}
+                                onFulfill={(isValid, code) => alert(code)}
                             />
                             <Icon name="phone" size={30} color={colors.green_color} style={{ alignItems: "center" }} />
 
