@@ -5,8 +5,24 @@ import {
     Button 
 }from "../../component"
 import Icon from 'react-native-vector-icons/FontAwesome'
-export default class index extends Component {
+import { connect } from "react-redux";
+import {getData, setPhone} from '../../action/RegistartionActions'
+
+
+const mapStateToProps = (state) => ({
+    
+        data: state
+    
+})
+
+const mapDispatchToProps = {
+    getData, setPhone
+}
+
+
+class index extends Component {
     render() {
+        console.log(this.props.data)
         return (
             <Screen>
             <View style={styles.container}>
@@ -19,6 +35,10 @@ export default class index extends Component {
                          maxLength={10}
                             style={{textAlign: 'right'}}
                             placeholder='05xxxxxxxx'
+                            onChange={(e)=>{
+                                // console.log(e.nativeEvent.text)
+                                this.props.setPhone(e.nativeEvent.text) 
+                            }}
                         />
                         <Icon name="phone" size={30} color={colors.green_color}  style={{alignItems:"center"}}/>
                     </View>
@@ -36,7 +56,11 @@ export default class index extends Component {
             </Screen>
         )
     }
+
+
 }
+export default connect(mapStateToProps, mapDispatchToProps)(index)
+
 const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
 

@@ -69,6 +69,8 @@ function MainStack (props){
         {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
         {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
         {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
+        <Stack.Screen name="regist2" component={Registration} />
+
         <Stack.Screen name="map" component={Test} />
         <Stack.Screen name="slider" component={SliderView} />
 
