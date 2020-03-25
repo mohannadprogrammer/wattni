@@ -5,6 +5,18 @@ import {
     ,StyleSheet} from 'react-native';
 
 import {Header }from '../component'
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => ({
+    
+    data: state
+
+})
+
+const mapDispatchToProps = {
+getData, setPhone
+}
+
 
 
 const Screen = ({name ,callBack ,...props}) => {
@@ -28,4 +40,4 @@ const style = StyleSheet.create({
         flex:1,
     },
 });
-export default Screen;
+export default connect(mapStateToProps, mapDispatchToProps)(Screen)
