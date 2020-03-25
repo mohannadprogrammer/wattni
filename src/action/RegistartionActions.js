@@ -1,13 +1,6 @@
 import { getDatas, addUser ,disactiveUser,updateItem} from "../api";
 const ActionTypes = require("./");
 
-export async function setPhone(data) {
-    
-    return {
-      type: ActionTypes.setPhone,
-      payload:data
-    };
-  }
 export async function getData(type) {
   const data =await getDatas(type).then(res => {
     console.log("------------------------------------");
@@ -16,6 +9,6 @@ export async function getData(type) {
   });
   return {
     type: ActionTypes.regist,
-    payload:"data"
+    payload:data
   };
 }
