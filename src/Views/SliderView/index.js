@@ -41,6 +41,8 @@ export default class SliderView extends Component {
        renderItem={this._renderItem} 
        renderDoneButton ={this._next}
        renderNextButton={ this._next}
+       activeDotStyle={{backgroundColor:"#2ecc71"}}
+       dotStyle={{backgroundColor:colors.green_color2}}
        onDone={()=>this.props.navigation.navigate("navigation")} />
     )
   }
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
         // backgroundColor:"black"
     },
     text:{
-        color:colors.green_color,
+        color:colors.green_color2,
         fontSize:30,
     }
 })
