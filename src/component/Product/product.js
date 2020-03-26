@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Image } from 'react-native'
+import { Text, StyleSheet, View, Image , TouchableOpacity } from 'react-native'
 
 export default class product extends Component {
     state = {
@@ -11,14 +11,14 @@ export default class product extends Component {
                 <View style={styles.card}>
                     <View style={styles.priceView}>
                         <View style={styles.price}>
-                            <Text style={styles.priceText}>{this.props.data.price}</Text>
+                            <Text style={styles.priceText}>{this.props.data.item.price}</Text>
                         </View>
                     </View>
                     <View style={styles.description}>
                         {/* <Image source={require("../../image/logo.png")} style={{ height: 100, width: 100, left: 0, top: 60 }}
                             resizeMode="contain"/> */}
-                        <Text style={{borderTopWidth:1}}>{this.props.data.name}</Text>
-                        <Text> (1 كرتون - عبوة{this.props.data.qunaty})</Text>
+                        <Text style={{borderTopWidth:1}}>{this.props.data.item.name}</Text>
+                        <Text> (1 كرتون - عبوة{this.props.data.item.qunaty})</Text>
                         {/* <Image source={require("../../image/logo.png")} style={{ height: 100, width: 100, left: 0, top: 60 }}
                             resizeMode="contain" /> */}
 
@@ -32,9 +32,9 @@ export default class product extends Component {
                     <View style={styles.countView}>
                         <Text >{this.state.count}</Text>
                     </View>
-                    <View style ={styles.operation}>
+                    <TouchableOpacity style ={styles.operation} onPress ={this.props.increase}>
                         <Text style={{color:colors.yallow , top:-1,fontSize:20}}>+</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 
             </View>

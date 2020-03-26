@@ -13,7 +13,9 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import Screen from '../../HOC/Screen'
 import { connect } from 'react-redux'
 import { Product } from "../../component"
+import { addToCart} from '../../action/MainActions'
 class main extends Component {
+    
     constructor(props) {
         super(props)
 
@@ -36,15 +38,23 @@ class main extends Component {
             ]
         }
     }
+
+    addToCartData =(data )=>{
+        // console.log("fuck"+data)
+        // console.log(data)
+        this.props.addToCart(data)
+    }
     _renderItem = props => (
         <ImageBackground style={styles.sliderView} resizeMode="contain" source={require("../../image/footer.png")}>
             <Text>{props.title}</Text>
         </ImageBackground>
     );
     render() {
-
+        console.log(this.props.data)
+        
         return <Screen
             name="الرئسية"
+            // count={this.props.data.cart.products.length}
             callBack={() => {
                 this.props.navigation.navigate("chart");
             }}
@@ -52,13 +62,13 @@ class main extends Component {
             <View style={styles.container}>
 
                 <View style={styles.pageName}
-
+                    
                 >
                     <Text style={styles.pageNameText} >المنتجات</Text>
 
                 </View>
 
-                <SafeAreaView style={{ flex: 1 }}>
+                <SafeAreaView style={{ flex: 1 }} >
                     <FlatList
                         style={{flex:1 , backgroundColor:"red"}}
                         ListHeaderComponent={
@@ -76,13 +86,9 @@ class main extends Component {
                         )}
                         renderItem={(item, index, separator) => (
                             <Product
-                                data={{
-                                    key: 2,
-                                    price: "100 ر.س",
-                                    name: "مياة وطني 600 مل ",
-                                    qunaty: "24"
-
-                                }}
+                                increase ={this.addToCartData.bind(this, item.item)}
+                                // decrease={this.addToCartData(item)}
+                                data={item}
 
                             />
                         )}
@@ -134,4 +140,7 @@ const mapStateToProps = (state) => {
         data: state
     }
 }
-export default connect(mapStateToProps)(main);
+const mapDispatchToProps = {
+    addToCart
+}
+export default connect(mapStateToProps , mapDispatchToProps)(main);

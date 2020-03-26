@@ -14,16 +14,18 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-getData, setPhone
+// getData, setPhone
 }
 
 
 
 const Screen = ({name ,callBack ,...props}) => {
-    
+    console.log(props.count);
     return <View style={style.container}>
         <Header
             name ={name}
+            cartContentNumber ={props.data.cart.products.length}
+
             // action ={()=>alert("what the fuck")}
             action ={callBack}
         />

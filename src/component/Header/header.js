@@ -26,8 +26,8 @@ export default class HeaderView extends Component {
               <Icon name="cart"
                
               />
-              <Badge danger style={{height:20,width:20}}>
-                <Text style={{color:colors.box_backgroud}}>2</Text>
+              <Badge danger style={{ padding:5 , alignItems:'center', justifyContent:"center" ,borderRadius:10}}>
+    <Text style={{color:colors.box_backgroud, textAlign:"center" , fontSize:13}}>{this.props.cartContentNumber}</Text>
               </Badge>
             </Button>
           </Left>

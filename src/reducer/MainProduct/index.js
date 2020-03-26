@@ -38,6 +38,7 @@ const ProductInitialState = {
     ]
     
 }
+const actionType = require("../../action")
 
 
 export default Product = (state = ProductInitialState, action) => {
