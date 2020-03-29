@@ -102,6 +102,7 @@ function MainNavigation(props) {
             return <Icon name="home" size={size} color={color} />;
           },
         })}
+        
         initialRouteName="المنتجات"
         tabBarOptions={{
           inactiveTintColor: '#fff',

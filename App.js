@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  { View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import {
   Main,
@@ -19,16 +19,16 @@ class App extends Component {
   render() {
     return (
       <StateProvider>
-           {/* <Main></Main> */}
+        {/* <Main></Main> */}
 
- {/* <SocialMedia/> */}
- {/* <LanguageSellector/> */}
- {/* <SliderView/> */}
-<MAinNavigation/>
- {/* <Order/> */}
-{/* <Text>alksdlfkasdfk</Text> */}
+        {/* <SocialMedia/> */}
+        {/* <LanguageSellector/> */}
+        {/* <SliderView/> */}
+        <MAinNavigation />
+        {/* <Order/> */}
+        {/* <Text>alksdlfkasdfk</Text> */}
       </StateProvider>
-      
+
     );
   }
 }
