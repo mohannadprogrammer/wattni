@@ -13,9 +13,9 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import Screen from '../../HOC/Screen'
 import { connect } from 'react-redux'
 import { Product } from "../../component"
-import { addToCart} from '../../action/MainActions'
+import { addToCart } from '../../action/MainActions'
 class main extends Component {
-    
+
     constructor(props) {
         super(props)
 
@@ -39,19 +39,19 @@ class main extends Component {
         }
     }
 
-    addToCartData =(data )=>{
+    addToCartData = (data) => {
         // console.log("fuck"+data)
         // console.log(data)
         this.props.addToCart(data)
     }
     _renderItem = props => (
-        <ImageBackground style={styles.sliderView} resizeMode="contain" source={require("../../image/footer.png")}>
+        <ImageBackground style={styles.sliderView} resizeMode="contain" source={require("../../image/product/slider.png")}>
             <Text>{props.title}</Text>
         </ImageBackground>
     );
     render() {
         console.log(this.props.data)
-        
+
         return <Screen
             name="الرئسية"
             // count={this.props.data.cart.products.length}
@@ -62,7 +62,7 @@ class main extends Component {
             <View style={styles.container}>
 
                 <View style={styles.pageName}
-                    
+
                 >
                     <Text style={styles.pageNameText} >المنتجات</Text>
 
@@ -70,23 +70,29 @@ class main extends Component {
 
                 <SafeAreaView style={{ flex: 1 }} >
                     <FlatList
-                        style={{flex:1 , backgroundColor:"red"}}
+                        style={{ flex: 1, backgroundColor: "red" }}
                         ListHeaderComponent={
                             <View style={styles.sliderViewContainer} >
-                                <AppIntroSlider slides={this.state.data} renderItem={this._renderItem} />
+                                <AppIntroSlider 
+                                    slides={this.state.data}
+                                    dotStyle={{ backgroundColor: colors.green_color2 }}
+                                    activeDotStyle={{backgroundColor:"#2ecc71"}}
+                                    renderNextButton={ ()=>(<View><View></View></View>)}
+
+                                    renderItem={this._renderItem} />
                             </View>
                         }
 
                         data={this.props.data.Product.products}
                         style={{ top: 5 }}
                         numColumns={2}
-                        
+
                         ItemSeparatorComponent={() => (
                             <View style={[{ marginLeft: 0 }]} />
                         )}
                         renderItem={(item, index, separator) => (
                             <Product
-                                increase ={this.addToCartData.bind(this, item.item)}
+                                increase={this.addToCartData.bind(this, item.item)}
                                 // decrease={this.addToCartData(item)}
                                 data={item}
 
@@ -143,4 +149,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     addToCart
 }
-export default connect(mapStateToProps , mapDispatchToProps)(main);
+export default connect(mapStateToProps, mapDispatchToProps)(main);

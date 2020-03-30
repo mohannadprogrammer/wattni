@@ -3,12 +3,14 @@ const ProductInitialState = {
         {
             key:1,
             price: "100 ر.س",
+            type:"200",
             name: "مياة وطني 600 مل ",
             qunaty: "24"
 
         },
         {
             key:2,
+            type:"200",
             price: "100 ر.س",
             name: "مياة وطني 600 مل ",
             qunaty: "24"
@@ -17,6 +19,7 @@ const ProductInitialState = {
         {
             key:3,
             price: "100 ر.س",
+            type:"200",
             name: "مياة وطني 600 مل ",
             qunaty: "24"
 
@@ -24,17 +27,11 @@ const ProductInitialState = {
         {
             key:4,
             price: "100 ر.س",
+            type:"330",
             name: "مياة وطني 600 مل ",
             qunaty: "24"
 
-        },
-        {
-            key:5,
-            price: "100 ر.س",
-            name: "مياة وطني 600 مل ",
-            qunaty: "24"
-
-        }    
+        },  
     ]
     
 }

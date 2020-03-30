@@ -2,10 +2,22 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image , TouchableOpacity } from 'react-native'
 
 export default class product extends Component {
-    state = {
-        count: 0
+    constructor(props){
+        super(props)
+        this.state={
+            count: 0
+
+        }
+    }
+    increaseCount =()=>{
+        this.setState(prevState=>({
+            count:++prevState.count
+        }))
+        this.props.increase()
+
     }
     render() {
+        console.log("count"+this.state.count)
         return (
             <View style={styles.container}>
                 <View style={styles.card}>
@@ -15,12 +27,14 @@ export default class product extends Component {
                         </View>
                     </View>
                     <View style={styles.description}>
-                        {/* <Image source={require("../../image/logo.png")} style={{ height: 100, width: 100, left: 0, top: 60 }}
-                            resizeMode="contain"/> */}
-                        <Text style={{borderTopWidth:1}}>{this.props.data.item.name}</Text>
-                        <Text> (1 كرتون - عبوة{this.props.data.item.qunaty})</Text>
-                        {/* <Image source={require("../../image/logo.png")} style={{ height: 100, width: 100, left: 0, top: 60 }}
-                            resizeMode="contain" /> */}
+                        <Image source={
+                            this.props.data.item.type=="200" ?
+                            require("../../image/product/200.png"):require("../../image/product/330.png")} style={{ height: 50, width: 100 ,top:-5}}
+                            resizeMode="contain"/>
+                        <Text style={{flex:1,borderTopWidth:1 , borderTopColor:colors.green_color2 , color:colors.green_color2 , fontSize:17}}>مياة وطني {this.props.data.item.type} مل </Text>
+                        <Text style={{flex:1 , top:-20 , color:colors.green_color }}> (1 كرتون - عبوة{this.props.data.item.qunaty})</Text>
+                        <Image source={require("../../image/product/footer.png")} style={{position:"absolute", flex:1,height: 100, width: 100,bottom:-55}}
+                            resizeMode="contain" />
 
                     </View>
                     
@@ -32,7 +46,7 @@ export default class product extends Component {
                     <View style={styles.countView}>
                         <Text >{this.state.count}</Text>
                     </View>
-                    <TouchableOpacity style ={styles.operation} onPress ={this.props.increase}>
+                    <TouchableOpacity style ={styles.operation} onPress ={this.increaseCount.bind(this)}>
                         <Text style={{color:colors.yallow , top:-1,fontSize:20}}>+</Text>
                     </TouchableOpacity>
                 </View>
@@ -45,9 +59,10 @@ const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
     container:{
         flex:1, 
-        // justifyContent:"center",
+        justifyContent:"space-between",
         alignItems:'center',
-        // width:200
+        // height:00
+        // width:400
         // backgroundColor:"red"
 
     },
@@ -59,11 +74,13 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 20,
         backgroundColor: colors.box_backgroud,
-        width: 150,
+        width: 180,
+        padding:20
 
     },
     priceView: {
         flex: 1,
+        top:-20,right:-15,
         width: 146,
         flexDirection: "row",
         justifyContent: "flex-end",
