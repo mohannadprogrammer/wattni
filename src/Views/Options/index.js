@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
 import { Icon } from 'native-base'
 import Screen from "../../HOC/Screen"
+import Components from '../../component'
+
 export default class index extends Component {
     constructor(props) {
         super(props)
@@ -70,20 +72,17 @@ export default class index extends Component {
                             <Text style={styles.text}>شارك تطبيقك</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            style={styles.option}
+                            style={this.state.language ? styles.InShowoption :styles.option}
                             onPress={() => this.showLanguage()}
                         >
-                            <Icon name="home" />
+                            <Icon name="home" style={!this.state.language ? null : { display: "none" }}/>
                             <Text style={styles.text}>English</Text>
                         </TouchableOpacity>
                         <View style={this.state.language ? styles.collapseView : { display: "none" }}
 
 
                         >
-                            <Text>faskldlfksd</Text>
-                            <Text>faskldlfksd</Text>
-                            <Text>faskldlfksd</Text>
-                            <Text>faskldlfksd</Text>
+                            <Components.LanguageBox />
                         </View>
                     </View>
                 </ScrollView>

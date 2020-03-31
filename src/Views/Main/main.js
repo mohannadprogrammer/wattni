@@ -43,6 +43,7 @@ class main extends Component {
         // console.log("fuck"+data)
         // console.log(data)
         this.props.addToCart(data)
+        this.render()
     }
     _renderItem = props => (
         <ImageBackground style={styles.sliderView} resizeMode="contain" source={require("../../image/product/slider.png")}>

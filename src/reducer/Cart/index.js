@@ -1,29 +1,10 @@
 const ProductInitialState = {
     products:[
-        {
-            key:1,
-            price: "100 ر.س",
-            name: "مياة وطني 600 مل ",
-            qunaty: "24"
-
-        },
-        {
-            key:2,
-            price: "100 ر.س",
-            name: "مياة وطني 600 مل ",
-            qunaty: "24"
-
-        },
-        {
-            key:3,
-            price: "100 ر.س",
-            name: "مياة وطني 600 مل ",
-            qunaty: "24"
-
-        } ,
         
+    
             
-    ]
+    ],
+    
     
 }
 const actionType = require("../../action")
@@ -35,11 +16,21 @@ export default Cart = (state = ProductInitialState, action) => {
 
     switch (action.type) {
         case actionType.addToCart:
-            state ={
-                products:[
-                    ...state.products
-                    ,action.payload
-                ]
+            let v =state.products.find((value,index,object)=>{
+                    return value.key ===action.payload.key 
+
+                    
+                 
+            });
+
+            console.log("V= ",v)
+            if (v==undefined){
+                state ={
+                    products:[
+                        ...state.products
+                        ,action.payload
+                    ]
+                }
             }
             // state.products.push(action.payload)
             return state

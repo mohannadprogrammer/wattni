@@ -5,7 +5,8 @@ const ProductInitialState = {
             price: "100 ر.س",
             type:"200",
             name: "مياة وطني 600 مل ",
-            qunaty: "24"
+            qunaty: "24",
+            count:0
 
         },
         {
@@ -14,24 +15,8 @@ const ProductInitialState = {
             price: "100 ر.س",
             name: "مياة وطني 600 مل ",
             qunaty: "24"
-
+            ,count:0
         },
-        {
-            key:3,
-            price: "100 ر.س",
-            type:"200",
-            name: "مياة وطني 600 مل ",
-            qunaty: "24"
-
-        } ,
-        {
-            key:4,
-            price: "100 ر.س",
-            type:"330",
-            name: "مياة وطني 600 مل ",
-            qunaty: "24"
-
-        },  
     ]
     
 }
@@ -40,7 +25,19 @@ const actionType = require("../../action")
 
 export default Product = (state = ProductInitialState, action) => {
     switch (action.type) {
-        case "GET_PRODUCTS":
+        case actionType.addToCart:
+            // state.products.find({key:action.data.key});
+            let v =state.products.find((value,index,object)=>{
+                return value.key ==action.payload.key
+                
+            });
+            v.count++
+
+            console.log("V2= ",v)
+            
+            // state ={
+            //     products:
+            // }
             
             return state
         case "ACTION_TYPE_2":

@@ -18,7 +18,7 @@ export default class HeaderView extends Component {
       <View style={{flex:0 , flexDirection:"row"}}>
         <ImageBackground
           source={require("../../image/headerBackground.png")}
-          androidStatusBarColor={colors.green_color2}
+          // androidStatusBarColor={colors.green_color2}
           style={styles.header}>
           <Left style={styles.Left}>
             <Button transparent

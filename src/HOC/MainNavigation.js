@@ -2,6 +2,7 @@ import React from "react"
 
 import {
   StyleSheet,
+  StatusBar
 } from 'react-native'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -58,7 +59,10 @@ function MainStack (props){
 
     return (
     <NavigationContainer>
-
+      <StatusBar
+        color={colors.box_backgroud}
+        style={{color:colors.box_backgroud}}
+      />
       <Stack.Navigator
         headerMode="none"
         
@@ -66,7 +70,7 @@ function MainStack (props){
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
         {/* <Stack.Screen name="language" component={Payment} /> */}
-        <Stack.Screen name="language" component={LanguageSellector} />
+        {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
         {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
         {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
         {/* <Stack.Screen name="navigatio7n" component={MainNavigation} /> */}
@@ -74,7 +78,7 @@ function MainStack (props){
         {/* <Stack.Screen name="regist2" component={Registration} /> */}
 
         {/* <Stack.Screen name="map" component={Test} /> */}
-        <Stack.Screen name="slider" component={SliderView} />
+        {/* <Stack.Screen name="slider" component={SliderView} /> */}
 
         <Stack.Screen name="navigation" component={MainNavigation} />
 
@@ -89,7 +93,7 @@ function MainNavigation(props) {
   return (
       
       <Tab.Navigator
-        style={{
+      style={{
 
           backgroundColor: colors.green_color2,
 
@@ -106,9 +110,9 @@ function MainNavigation(props) {
         initialRouteName="المنتجات"
         tabBarOptions={{
           inactiveTintColor: '#fff',
-          activeTintColor:"black",
+          activeTintColor:"#fff",
           tabStyle: {
-            backgroundColor: "#25a96f",
+            backgroundColor: colors.green_color2,
             borderLeftColor: "#fff",
             borderLeftWidth: 1
           },

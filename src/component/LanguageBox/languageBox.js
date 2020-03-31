@@ -30,28 +30,27 @@ const style = StyleSheet.create({
         borderWidth:2,
         borderRadius:20,
         backgroundColor:"#fff",
-        height:100,
-        width:350,
-        flex:0,
+        flex:1,
+        margin:20,
         flexDirection:"row",
         justifyContent:"space-between",
-        // alignItems:"sp",
         padding:10
     },
     languageBox:{
         flex:1,
-        // width:50,
-        // height:80,
         borderColor:"#F7F7F2",
         borderWidth:2,
         borderRadius:5,
-        padding:20
+        padding:10,
+        margin:10
         // backgroundColor:""
     },
     text:{
-        fontSize:22,
+        // fontSize:15,
+        flex:1,
+        // fontSize:22,
         color:"black",
-        padding:3
+        // padding:3
     }
 });
 export default languageBox;

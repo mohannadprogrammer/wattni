@@ -5,7 +5,7 @@ export default class offerBox extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image source={require("../../image/footer.png")} resizeMode="stretch" style={{ height: 200, width: 400 }} />
+                <Image source={require("../../image/offer.png")} resizeMode="stretch" style={{ height: 200, width: 400 }} />
                 <View style={styles.text}>
                     <Text style={{
                         fontSize: 20, paddingVertical: 10,

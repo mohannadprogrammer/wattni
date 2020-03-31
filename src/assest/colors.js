@@ -2,8 +2,9 @@ const colors = {
     
     background :"#F7F7F7",
     green_color:"#0bb7b0",
-    green_color2:"#25a96f",
+    green_color2:"#06a053",
     box_backgroud :"#fff",
+    product_name_color:"#087a6f",
     gray:"#a8a8a8",
     black_gray:"#ecf0f1",
     yallow:"#E2E14C",

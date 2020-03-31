@@ -17,7 +17,7 @@ export default class product extends Component {
 
     }
     render() {
-        console.log("count"+this.state.count)
+        console.log("count",this.props.data.item.count)
         return (
             <View style={styles.container}>
                 <View style={styles.card}>
@@ -31,7 +31,7 @@ export default class product extends Component {
                             this.props.data.item.type=="200" ?
                             require("../../image/product/200.png"):require("../../image/product/330.png")} style={{ height: 50, width: 100 ,top:-5}}
                             resizeMode="contain"/>
-                        <Text style={{flex:1,borderTopWidth:1 , borderTopColor:colors.green_color2 , color:colors.green_color2 , fontSize:17}}>مياة وطني {this.props.data.item.type} مل </Text>
+                        <Text style={{flex:1,borderTopWidth:1 , borderTopColor:colors.green_color2 , color:colors.product_name_color , fontSize:17}}>مياة وطني {this.props.data.item.type} مل </Text>
                         <Text style={{flex:1 , top:-20 , color:colors.green_color }}> (1 كرتون - عبوة{this.props.data.item.qunaty})</Text>
                         <Image source={require("../../image/product/footer.png")} style={{position:"absolute", flex:1,height: 100, width: 100,bottom:-55}}
                             resizeMode="contain" />
@@ -44,7 +44,7 @@ export default class product extends Component {
                         <Text style={{color:colors.yallow , top:-2,fontSize:30}}>-</Text>
                     </View>
                     <View style={styles.countView}>
-                        <Text >{this.state.count}</Text>
+                        <Text >{this.props.data.item.count}</Text>
                     </View>
                     <TouchableOpacity style ={styles.operation} onPress ={this.increaseCount.bind(this)}>
                         <Text style={{color:colors.yallow , top:-1,fontSize:20}}>+</Text>

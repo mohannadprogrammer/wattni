@@ -16,22 +16,22 @@ import {
     Body,
     Icon,
 } from 'native-base';
-const Cart = () => {
+const Cart = (props) => {
 
     return <View style={styles.container}>
         <TouchableOpacity style={styles.delete}>
             <Icon name="trashcan" type="Octicons" style={{ color: colors.box_backgroud, padding: 4, fontSize: 30 }} />
         </TouchableOpacity>
         <View style={styles.info}>
-            <Text style={styles.infoName}>مياة الوطني 330 مل</Text>
+            <Text style={styles.infoName}>مياة الوطني {props.data.item.type} مل</Text>
             <Text style={styles.infoPackageSize}>(1 كرتونة -48عبوة )</Text>
-            <Text>16.00 <Text style={{color:colors.currance}}>ر.س</Text></Text>
+            <Text>{props.data.item.price}<Text style={{color:colors.currance}}>ر.س</Text></Text>
             <View style={styles.quntatyView}>
                 <View style={styles.operation}>
                     <Text style={{ color: colors.currance, top: -2, fontSize: 30 }}>-</Text>
                 </View>
                 <View style={styles.countView}>
-                    <Text >0</Text>
+                    <Text >{props.data.item.count}</Text>
                 </View>
                 <View style={styles.operation}>
                     <Text style={{ color: colors.currance, top: -1, fontSize: 20 }}>+</Text>
