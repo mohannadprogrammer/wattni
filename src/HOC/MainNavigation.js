@@ -2,14 +2,17 @@ import React from "react"
 
 import {
   StyleSheet,
-  StatusBar
+  Image,
+  StatusBar,
+  View,
+  Text
 } from 'react-native'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Views ,{
+import Views, {
   Main,
   SocialMedia,
   LanguageSellector,
@@ -24,7 +27,7 @@ import Views ,{
   SliderView,
   OrderState,
   LocationDetector
-}  from "../Views"
+} from "../Views"
 import Test from '../Views/test'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -33,39 +36,39 @@ import Screen from '../HOC/Screen';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function Chart (props){
+function Chart(props) {
   // console.log(props);
 
-    return (
-      <Stack.Navigator
-        headerMode="none"
-        
-      >
-        <Stack.Screen name="main" component={Main} />
-        <Stack.Screen name="orderState" component={Views.OrderState} />
-        <Stack.Screen name="payment" component={Payment} />
-        <Stack.Screen name="callcenter" component={CallCenter} />
-        <Stack.Screen name="chart" component={Cart} />
-        <Stack.Screen name="regist" component={Registration} />
-        <Stack.Screen name="confirm" component={ConfirmationDetector} />
+  return (
+    <Stack.Navigator
+      headerMode="none"
+
+    >
+      <Stack.Screen name="main" component={Main} />
+      <Stack.Screen name="orderState" component={Views.OrderState} />
+      <Stack.Screen name="payment" component={Payment} />
+      <Stack.Screen name="callcenter" component={CallCenter} />
+      <Stack.Screen name="chart" component={Cart} />
+      <Stack.Screen name="regist" component={Registration} />
+      <Stack.Screen name="confirm" component={ConfirmationDetector} />
 
 
 
-      </Stack.Navigator>
-    )
+    </Stack.Navigator>
+  )
 }
-function MainStack (props){
+function MainStack(props) {
   // console.log(props);
 
-    return (
+  return (
     <NavigationContainer>
       <StatusBar
-        color={colors.box_backgroud}
-        style={{color:colors.box_backgroud}}
+        color={colors.green_color2}
+        style={{ color: colors.box_backgroud }}
       />
       <Stack.Navigator
         headerMode="none"
-        
+
       >
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
@@ -86,46 +89,55 @@ function MainStack (props){
       </Stack.Navigator>
     </NavigationContainer>
 
-    )
+  )
 }
 
 function MainNavigation(props) {
   return (
+
+    <Tab.Navigator
       
-      <Tab.Navigator
-      style={{
 
-          backgroundColor: colors.green_color2,
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          console.log(route);
+          if (route.name == "المنتجات")
+            return <Image source={require('../image/mainBottomicons/product.png')} style={{ flex: 1 }} resizeMode="contain"></Image>
+          else if (route.name === "العروض")
+            return <Image source={require('../image/mainBottomicons/offers.png')} style={{ flex: 1 }} resizeMode="contain"></Image>
+          else if (route.name === "الطلبات")
+            return <Image source={require('../image/mainBottomicons/orders.png')} style={{ flex: 1 }} resizeMode="contain"></Image>
+          else if (route.name === "المزيد")
+            return <Image source={require('../image/mainBottomicons/more.png')} style={{ flex: 1 }} resizeMode="contain"></Image>
+          else
 
-        }}
-
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-
-            // You can return any component that you like here!
             return <Icon name="home" size={size} color={color} />;
-          },
-        })}
+        },
+        tabBarLabel: () => (<View>
+          <Text style={{ color: colors.currance }}>{route.name}</Text>
+        </View>),
         
-        initialRouteName="المنتجات"
-        tabBarOptions={{
-          inactiveTintColor: '#fff',
-          activeTintColor:"#fff",
-          tabStyle: {
-            backgroundColor: colors.green_color2,
-            borderLeftColor: "#fff",
-            borderLeftWidth: 1
-          },
+      })}
+
+      initialRouteName="المنتجات"
+      tabBarOptions={{
+        inactiveTintColor: '#fff',
+        activeTintColor: "#fff",
+        tabStyle: {
+          backgroundColor: colors.green_color2,
+          borderLeftColor: "#fff",
+          borderLeftWidth: 1,
+        },
 
 
-        }}
-      >
-        <Tab.Screen name="المزيد" component={Options} />
-        <Tab.Screen name="الطلبات" component={Orders} />
-        <Tab.Screen name="العروض" component={Offers} />
-        <Tab.Screen name="المنتجات" component={Chart} />
-        
-      </Tab.Navigator>
+      }}
+    >
+      <Tab.Screen name="المزيد" component={Options} />
+      <Tab.Screen name="الطلبات" component={Orders} />
+      <Tab.Screen name="العروض" component={Offers} />
+      <Tab.Screen name="المنتجات" component={Chart} />
+
+    </Tab.Navigator>
 
   );
 }

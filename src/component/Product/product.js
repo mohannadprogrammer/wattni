@@ -33,7 +33,7 @@ export default class product extends Component {
                             resizeMode="contain"/>
                         <Text style={{flex:1,borderTopWidth:1 , borderTopColor:colors.green_color2 , color:colors.product_name_color , fontSize:17}}>مياة وطني {this.props.data.item.type} مل </Text>
                         <Text style={{flex:1 , top:-20 , color:colors.green_color }}> (1 كرتون - عبوة{this.props.data.item.qunaty})</Text>
-                        <Image source={require("../../image/product/footer.png")} style={{position:"absolute", flex:1,height: 100, width: 100,bottom:-55}}
+                        <Image source={require("../../image/product/footer.png")} style={{position:"absolute", flex:1,height: 100, width: 100,bottom:-50}}
                             resizeMode="contain" />
 
                     </View>
@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 20,
         backgroundColor: colors.box_backgroud,
-        width: 180,
-        padding:20
-
+        // width: 140,
+        // padding:20
+        // ,margin:205
     },
     priceView: {
         flex: 1,
-        top:-20,right:-15,
+        // right:-10,
         width: 146,
         flexDirection: "row",
         justifyContent: "flex-end",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         // backgroundColor:"red"
     },
     price: {
-
+        // flex:1,
         backgroundColor: colors.green_color2,
         borderTopRightRadius: 18,
         borderBottomLeftRadius: 10,
@@ -100,11 +100,12 @@ const styles = StyleSheet.create({
 
     },
     description: {
-        flex: 0,
+        flex: 1,
         height: 140,
         width: 146,
         justifyContent: "center",
         alignItems: "center",
+        marginVertical:20
         // backgroundColor:"red"
     },
 
