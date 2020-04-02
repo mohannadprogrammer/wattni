@@ -23,7 +23,7 @@ export default Cart = (state = ProductInitialState, action) => {
                  
             });
 
-            console.log("V= ",v)
+            // console.log("V= ",v)
             if (v==undefined){
                 state ={
                     products:[

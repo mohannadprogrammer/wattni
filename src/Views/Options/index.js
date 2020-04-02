@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView , Image} from 'react-native'
 import { Icon } from 'native-base'
 import Screen from "../../HOC/Screen"
 import Components from '../../component'
@@ -8,7 +8,7 @@ export default class index extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            contact: true,
+            contact: false,
             language: false
         }
     }
@@ -33,7 +33,7 @@ export default class index extends Component {
                 <ScrollView>
                     <View style={styles.card}>
                         <TouchableOpacity style={styles.option}>
-                            <Icon name="home" />
+                            <Image source={require('../../image/moremenu/profile.png')} style={styles.icon} resizeMode="contain"></Image>
 
                             <Text style={styles.text}>تعديل الملف الشخصي </Text>
                         </TouchableOpacity>
@@ -42,7 +42,7 @@ export default class index extends Component {
                             style={this.state.contact ? styles.InShowoption : styles.option}
                             onPress={() => this.showContact()}
                         >
-                            <Icon name="home" style={!this.state.contact ? null : { display: "none" }} />
+                            <Image source={require('../../image/moremenu/contact.png')} style={!this.state.contact ? styles.icon:{display:"none"}} resizeMode="contain"></Image>
 
                             <Text style={styles.text}>تواصل معنا </Text>
 
@@ -68,14 +68,15 @@ export default class index extends Component {
 
                         </View>
                         <TouchableOpacity style={styles.option}>
-                            <Icon name="home" />
+                            <Image source={require('../../image/moremenu/share.png')} style={styles.icon} resizeMode="contain"></Image>
                             <Text style={styles.text}>شارك تطبيقك</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={this.state.language ? styles.InShowoption :styles.option}
                             onPress={() => this.showLanguage()}
                         >
-                            <Icon name="home" style={!this.state.language ? null : { display: "none" }}/>
+                             <Image source={require('../../image/moremenu/languages.png')} style={!this.state.language ? styles.icon: { display: "none" }} resizeMode="contain"></Image>
+                            {/* <Icon name="home" style={!this.state.language ? { flex: 1 } : { display: "none" }}/> */}
                             <Text style={styles.text}>English</Text>
                         </TouchableOpacity>
                         <View style={this.state.language ? styles.collapseView : { display: "none" }}
@@ -148,4 +149,5 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         paddingHorizontal: 10,
     },
+    icon:{ flex: 0 ,height:30,width:30}
 })

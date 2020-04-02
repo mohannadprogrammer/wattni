@@ -115,7 +115,7 @@ export default class index extends Component {
                                         <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( مدى )</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
-                                        <Image resizeMode='contain' source={require('../../image/footer.png')}
+                                        <Image resizeMode='contain' source={require('../../image/e-pay/mada.png')}
                                             style={{ width: 60, height: 30, margin: 5 }} /></View>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
@@ -127,10 +127,10 @@ export default class index extends Component {
                                             status={checked === 'mada' ? 'checked' : 'unchecked'}
                                         // onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }}
                                         />
-                                        <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( مدى )</Text>
+                                        <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( سداد )</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
-                                        <Image resizeMode='contain' source={require('../../image/footer.png')}
+                                        <Image resizeMode='contain' source={require('../../image/e-pay/sadad.png')}
                                             style={{ width: 60, height: 30, margin: 5 }} /></View>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
@@ -142,11 +142,12 @@ export default class index extends Component {
                                             status={checked === 'mada' ? 'checked' : 'unchecked'}
                                         // onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }}
                                         />
-                                        <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( مدى )</Text>
+                                        <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( visa master card )</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
-                                        <Image resizeMode='contain' source={require('../../image/footer.png')}
-                                            style={{ width: 60, height: 30, margin: 5 }} /></View>
+                                        <Image resizeMode='contain' source={require('../../image/e-pay/visamastCard.png')}
+                                            style={{ width: 60, height: 30, margin: 5 }} />
+                                </View>
                                 </TouchableOpacity>
 
 

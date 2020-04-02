@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet , ImageBackground} from 'react-native';
+import { Text, View, StyleSheet , ImageBackground , Image} from 'react-native';
 import {
   Container,
   Header,
@@ -24,10 +24,11 @@ export default class HeaderView extends Component {
             <Button transparent
               onPress={this.props.action}
             >
-              <Icon name="cart"
+              <Image source={require("../../image/cart.png")} style={{flex:0,width:30,height:30 , marginHorizontal:15}}/>
+              {/* <Icon name="cart"
                   style={{fontSize:40, color:colors.box_backgroud}}
-              />
-              <Badge danger style={{ padding: 5, alignItems: 'center', justifyContent: "center", borderRadius: 10 ,left:-22, top:-22}}>
+              /> */}
+              <Badge danger style={this.props.cartContentNumber!==0 ?{ padding: 5, alignItems: 'center', justifyContent: "center", borderRadius: 10 ,left:-22, top:-22}:{display:"none"}}>
                 <Text style={{ color: colors.box_backgroud, textAlign: "center", fontSize: 13 }}>{this.props.cartContentNumber}</Text>
               </Badge>
             </Button>

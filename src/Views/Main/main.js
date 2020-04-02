@@ -13,7 +13,7 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import Screen from '../../HOC/Screen'
 import { connect } from 'react-redux'
 import { Product } from "../../component"
-import { addToCart } from '../../action/MainActions'
+import { addToCart ,decrease } from '../../action/MainActions'
 class main extends Component {
 
     constructor(props) {
@@ -43,7 +43,10 @@ class main extends Component {
         // console.log("fuck"+data)
         // console.log(data)
         this.props.addToCart(data)
-        this.render()
+        // this.render()
+    }
+    decreaseData =(data)=>{
+        this.props.decrease(data)
     }
     _renderItem = props => (
         <ImageBackground style={styles.sliderView} resizeMode="contain" source={require("../../image/product/slider.png")}>
@@ -94,7 +97,7 @@ class main extends Component {
                         renderItem={(item, index, separator) => (
                             <Product
                                 increase={this.addToCartData.bind(this, item.item)}
-                                // decrease={this.addToCartData(item)}
+                                decrease={this.decreaseData.bind(this,item.item)}
                                 data={item}
 
                             />
@@ -148,6 +151,6 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = {
-    addToCart
+    addToCart  , decrease
 }
 export default connect(mapStateToProps, mapDispatchToProps)(main);

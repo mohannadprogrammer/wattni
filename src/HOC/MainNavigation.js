@@ -64,7 +64,7 @@ function MainStack(props) {
     <NavigationContainer>
       <StatusBar
         color={colors.green_color2}
-        style={{ color: colors.box_backgroud }}
+        style={{ color: colors.green_color2 }}
       />
       <Stack.Navigator
         headerMode="none"
@@ -97,7 +97,6 @@ function MainNavigation(props) {
 
     <Tab.Navigator
       
-
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           console.log(route);

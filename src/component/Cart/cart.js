@@ -3,6 +3,7 @@ import {
     View, StyleSheet
     , Text
     , TouchableOpacity
+    ,Image
 } from 'react-native';
 
 // import Icon from 'react-native-vector-icons'
@@ -25,7 +26,7 @@ const Cart = (props) => {
         <View style={styles.info}>
             <Text style={styles.infoName}>مياة الوطني {props.data.item.type} مل</Text>
             <Text style={styles.infoPackageSize}>(1 كرتونة -48عبوة )</Text>
-            <Text>{props.data.item.price}<Text style={{color:colors.currance}}>ر.س</Text></Text>
+            <Text>{props.data.item.price}<Text style={{ color: colors.currance }}>ر.س</Text></Text>
             <View style={styles.quntatyView}>
                 <View style={styles.operation}>
                     <Text style={{ color: colors.currance, top: -2, fontSize: 30 }}>-</Text>
@@ -40,7 +41,20 @@ const Cart = (props) => {
         </View>
 
         <View style={styles.imageView}>
-            <Text>image</Text>
+            <Image source={
+                props.data.item.type == "200" ?
+                    require("../../image/product/200.png") : props.data.item.type == "330" ?
+                        require("../../image/product/330.png") : props.data.item.type == "600" ?
+                            require("../../image/product/600.png") : props.data.item.type == "1.5" ?
+                                require("../../image/product/1.5lit.png") : props.data.item.type == "3.8" ?
+                                    require("../../image/product/3.8lit.png") : props.data.item.type == "5" ?
+                                        require("../../image/product/5lit.png") : require("../../image/product/12lit.png")
+            }
+
+
+                style={{ height: 50, width: 100, top: -5 }}
+                resizeMode="contain" />
+
         </View>
 
 
@@ -59,7 +73,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         borderRadius: 15,
-        marginVertical:5,
+        marginVertical: 5,
         // alignItems:"sp",
         padding: 10
     },
@@ -73,62 +87,62 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 13,
         backgroundColor: colors.green_color2
     },
-    info:{
-        left:80
+    info: {
+        left: 80
 
     },
     quntatyView: {
         flex: 1,
         flexDirection: "row",
-        justifyContent:"space-around",
-        alignItems:"center",
+        justifyContent: "space-around",
+        alignItems: "center",
         backgroundColor: colors.box_backgroud,
-        borderColor:colors.green_color2,
-        borderWidth:1,
+        borderColor: colors.green_color2,
+        borderWidth: 1,
         width: 130,
-        height:20,
+        height: 20,
         borderRadius: 10,
-        padding:3,
-        
+        padding: 3,
+
 
     },
-    countView:{
-        alignItems:"center",
-        backgroundColor:colors.box_backgroud,
-        color:"black",
-        width:40,
-        fontSize:20,
+    countView: {
+        alignItems: "center",
+        backgroundColor: colors.box_backgroud,
+        color: "black",
+        width: 40,
+        fontSize: 20,
         borderRadius: 5,
 
     },
-    operation:{
-        flex:0,
-        alignItems :"center",
-        justifyContent:"center",
+    operation: {
+        flex: 0,
+        alignItems: "center",
+        justifyContent: "center",
         borderRadius: 20,
-        borderWidth:1,
-        borderColor:colors.green_color2,
-        width :20,
-        height:20,
-        
+        borderWidth: 1,
+        borderColor: colors.green_color2,
+        width: 20,
+        height: 20,
+
 
     },
-    imageView:{
-        borderLeftColor:colors.green_color2,
-        borderLeftWidth:2,
-        justifyContent:"center",
-        alignItems:"center",
-        top:15,
-        height:70,
-        width:100,
-        padding:10
+    imageView: {
+        borderLeftColor: colors.green_color2,
+        borderLeftWidth: 2,
+        justifyContent: "center",
+        alignItems: "center",
+        top: 15,
+        height: 70,
+        width: 100,
+        padding: 10
     },
-    infoName :{
-        color:colors.green_color2,
-        fontSize:15
+    infoName: {
+        color: colors.green_color2,
+        fontSize: 15
     },
-    infoPackageSize:{
-        color:colors.green_color
+    infoPackageSize: {
+        color: colors.green_color
     }
 });
 export default Cart;
