@@ -9,16 +9,16 @@ export default class SliderView extends Component {
               {
                   key:"1",
                   title:"nihs",
-                  image:"../image/footer.png"
+                  image:"../image/temp/1.png"
               },
               {
                   key:"2",
                   title:"nihs",
-                  image:"../image/footer.png"
+                  image:"../image/temp/2.png"
             },{
                   key:"3",
                   title:"nihs",
-                  image:"../image/footer.png"
+                  image:"../image/temp/3.png"
             }
             ]
       }
