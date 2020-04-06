@@ -15,7 +15,46 @@ import {
     OrderMassage,
     Button
 } from '../../component'
+import StepIndicator from 'react-native-step-indicator';
+
+const labels = ["تم تسليم الطلب", "تم شحن الطلب", "تم تاكيد الطلب", "تم انشاء الطلب"];
+const colors = require('../../assest/colors')
+
+// const colors = require('../assest/colors');
+const customStyles = {
+
+    stepIndicatorSize: 60,
+    currentStepIndicatorSize: 60,
+    separatorStrokeWidth: 2,
+    // separatorStrokeStyle: "dash",
+    currentStepStrokeWidth: 3,
+    stepStrokeCurrentColor: colors.green_color,
+    // currentStepIndicatorLabelFontSize: 23,
+    stepIndicatorLabelCurrentColor: colors.green_color2,
+    stepIndicatorCurrentColor: colors.green_color2,
+
+    stepStrokeWidth: 3,
+    stepStrokeFinishedColor: colors.green_color2,
+    stepStrokeUnFinishedColor: colors.green_color,
+    separatorFinishedColor: '#aaaaaa',
+    separatorUnFinishedColor: colors.green_color,
+    stepIndicatorFinishedColor: colors.box_backgroud,
+    stepIndicatorUnFinishedColor: colors.green_color2,
+    stepIndicatorLabelFontSize: 23,
+    stepIndicatorLabelFinishedColor: colors.green_color2,
+    stepIndicatorLabelUnFinishedColor: colors.green_color2,
+    labelColor: '#999999',
+    labelSize: 16,
+    currentStepLabelColor: colors.green_color2
+}
+
 export default class index extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          currentPosition: 2
+        }
+      }
     render() {
         const checked = true
 
@@ -28,74 +67,21 @@ export default class index extends Component {
             >
                 <ScrollView style={styles.body}>
                     <View style={styles.wrapper}>
-                        {/* <View style={{ flex: 1 }}> */}
-                        <ProgressSteps
-                            progressBarColor={colors.green_color2}
-                            borderStyle="none"
-                            borderWidth={2}
+                        <StepIndicator
 
-                            borderStyle="dash"
-                        >
-                            <ProgressStep
-
-                                // nextBtnStyle={{ display: "none" }}
-                                // previousBtnStyle={{ display: "none" }}
-                                label="First Step"
-                            >
-                                <OrderOps
-                                    title="تفاصيل الطلب"
-                                >
-                                    <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View>
-
-                                </OrderOps>
-
-                                <OrderMassage
-                                    title="تقييم الطلب "
-                                >
-                                    <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View>
-
-                                </OrderMassage>
-
-                                <Button
-                                    name="عودة الى الرئسية">
-
-                                </Button>
-                                {/* <View style={{ alignItems: 'center' }}>
-                                        
-                                    </View> */}
-                            </ProgressStep>
-                            <ProgressStep label="Second Step">
-                                <View style={{ alignItems: 'center' }}>
-                                    <Text>This is the content within step 2!</Text>
-                                </View>
-                            </ProgressStep>
-                            <ProgressStep label="Third Step">
-                                <View style={{ alignItems: 'center' }}>
-                                    <Text>This is the content within step 3!</Text>
-                                </View>
-                            </ProgressStep>
-                            <ProgressStep label="four Step">
-                                <OrderOps
+                            renderStepIndicator={this.renderStepIndicator}
+                            // customStyles={secondIndicatorStyles}
+                            // currentPosition={this.state.currentPage}
+                            stepCount={4}
+                            currentPosition={this.state.currentPosition}
+                            onPress={this.onStepPress}
+                            customStyles={customStyles}
+                            //  renderStepIndicator="sdkjfkjsd"
+                            // //  renderStepIndicator={this.renderStepIndicator}
+                            //  currentPosition={this.state.currentPosition}
+                            labels={labels}
+                        />
+                        <OrderOps
                                     title="تفاصيل الطلب"
                                 >
                                     <View style={{ alignItems: 'center' }}>
@@ -132,32 +118,50 @@ export default class index extends Component {
                                     name="عودة الى الرئسية">
 
                                 </Button>
-                                    
-                            </ProgressStep>
-                        </ProgressSteps>
-                        <View style={{flex:1 ,contant:1 ,width:"100%", height :"100%",backgroundColor:"red"}}>
-                                    <Text>skldfasd</Text>
-</View>
-                        {/* <CustomPrograss>
-                                <Step
-                                    name ="skks"
-                                >
-
-                                </Step>
-                                <Step
-                                    name ="skks"
-                                >
-
-                                </Step>
-                            </CustomPrograss> */}
-                        {/* </View> */}
+                        
                     </View>
                 </ScrollView>
             </Screen>
         )
     }
+    renderStepIndicator = params => {
+        console.log(params);
+        let images = [
+            require("../../image/ordreState/dilevry.png"),
+            require("../../image/ordreState/save.png"),
+            require("../../image/ordreState/Confirm.png"),
+
+            require("../../image/ordreState/create.png"),
+            
+        ]
+        return (
+            <View style={{ flex: 1, justifyContent:"center",alignItems:"center" }}>
+                <Image source={images[params.position]} resizeMode="center" style={{ height: 50, width: 50 }} />
+              </View>
+        )
+    }
+
+    renderLabel = ({ position, stepStatus, label, currentPosition }) => {
+        return (
+            <Text
+                style={
+                    position === currentPosition
+                        ? styles.stepLabelSelected
+                        : styles.stepLabel
+                }
+            >
+                {label}
+            </Text>
+        )
+    }
+    // renderStepIndicator (){
+    //   return (<Icon name ="cart"/>)
+    // }
+
+    onPageChange(position) {
+        this.setState({ currentPosition: position });
+    }
 }
-const colors = require('../../assest/colors')
 const styles = StyleSheet.create({
     body: {
         flex: 1,
@@ -166,10 +170,8 @@ const styles = StyleSheet.create({
         width: '100%',
     }, wrapper: {
         flex: 1,
-        width: "100%",
-        // justifyContent: 'space-around',
-
-        alignItems: 'flex-start',
-        // padding: 25,
+        margin:20,
     },
 })
+
+{/*  */}

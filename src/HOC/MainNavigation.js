@@ -74,7 +74,7 @@ function MainStack(props) {
 
         {/* <Stack.Screen name="language" component={Payment} /> */}
         {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
-        {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
+        <Stack.Screen name="language" component={Views.OrderState} />
         {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
         {/* <Stack.Screen name="navigatio7n" component={MainNavigation} /> */}
 
@@ -99,7 +99,6 @@ function MainNavigation(props) {
       
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          console.log(route);
           if (route.name == "المنتجات")
             return <Image source={require('../image/mainBottomicons/product.png')} style={{ flex: 1 }} resizeMode="contain"></Image>
           else if (route.name === "العروض")
