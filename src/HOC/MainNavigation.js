@@ -74,7 +74,7 @@ function MainStack(props) {
 
         {/* <Stack.Screen name="language" component={Payment} /> */}
         {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
-        <Stack.Screen name="language" component={Views.OrderState} />
+        {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
         {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
         {/* <Stack.Screen name="navigatio7n" component={MainNavigation} /> */}
 

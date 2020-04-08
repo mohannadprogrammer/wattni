@@ -20,17 +20,17 @@ export default product = props => {
         <View style={styles.description}>
           <Image
             source={
-              props.data.item.type == '200'
+              props.data.item.size == '200'
                 ? require('../../image/product/200.png')
-                : props.data.item.type == '330'
+                : props.data.item.size == '330'
                 ? require('../../image/product/330.png')
-                : props.data.item.type == '600'
+                : props.data.item.size == '600'
                 ? require('../../image/product/600.png')
-                : props.data.item.type == '1.5'
+                : props.data.item.size == '1.5'
                 ? require('../../image/product/1.5lit.png')
-                : props.data.item.type == '3.8'
+                : props.data.item.size == '3.8'
                 ? require('../../image/product/3.8lit.png')
-                : props.data.item.type == '5'
+                : props.data.item.size == '5'
                 ? require('../../image/product/5lit.png')
                 : require('../../image/product/12lit.png')
             }
@@ -45,11 +45,11 @@ export default product = props => {
               color: colors.product_name_color,
               fontSize: 17,
             }}>
-            مياة وطني {props.data.item.type} مل{' '}
+            {props.data.item.name} {props.data.item.size} {props.data.item.size_unit}{' '}
           </Text>
           <Text style={{flex: 1, top: -20, color: colors.green_color}}>
             {' '}
-            (1 كرتون - عبوة{props.data.item.qunaty})
+            (1 كرتون - عبوة{props.data.item.number})
           </Text>
           <Image
             source={require('../../image/product/footer.png')}

@@ -17,7 +17,7 @@ export default Cart = (state = ProductInitialState, action) => {
     switch (action.type) {
         case actionType.addToCart:
             let v =state.products.find((value,index,object)=>{
-                    return value.key ===action.payload.key 
+                    return value.id ===action.payload.id 
 
                     
                  
@@ -25,18 +25,13 @@ export default Cart = (state = ProductInitialState, action) => {
 
             // console.log("V= ",v)
             if (v==undefined){
-                state ={
-                    products:[
-                        ...state.products
-                        ,action.payload
-                    ]
-                }
+                state.products.push(action.payload)   
             }
             // state.products.push(action.payload)
-            return state
+            return {...state}
         case "ACTION_TYPE_2":
             return state
         default:
             return state
-    }
+    }               
 }

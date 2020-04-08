@@ -3,7 +3,7 @@ import {
     View, StyleSheet
     , Text
     , TouchableOpacity
-    ,Image
+    , Image
 } from 'react-native';
 
 // import Icon from 'react-native-vector-icons'
@@ -24,8 +24,9 @@ const Cart = (props) => {
             <Icon name="trashcan" type="Octicons" style={{ color: colors.box_backgroud, padding: 4, fontSize: 30 }} />
         </TouchableOpacity>
         <View style={styles.info}>
-            <Text style={styles.infoName}>مياة الوطني {props.data.item.type} مل</Text>
-            <Text style={styles.infoPackageSize}>(1 كرتونة -48عبوة )</Text>
+            <Text style={styles.infoName}>{props.data.item.name} {props.data.item.size} {props.data.item.size_unit}</Text>
+            <Text style={styles.infoPackageSize}>{' '}
+            (1 كرتون - عبوة{props.data.item.number})</Text>
             <Text>{props.data.item.price}<Text style={{ color: colors.currance }}>ر.س</Text></Text>
             <View style={styles.quntatyView}>
                 <View style={styles.operation}>
@@ -42,12 +43,12 @@ const Cart = (props) => {
 
         <View style={styles.imageView}>
             <Image source={
-                props.data.item.type == "200" ?
-                    require("../../image/product/200.png") : props.data.item.type == "330" ?
-                        require("../../image/product/330.png") : props.data.item.type == "600" ?
-                            require("../../image/product/600.png") : props.data.item.type == "1.5" ?
-                                require("../../image/product/1.5lit.png") : props.data.item.type == "3.8" ?
-                                    require("../../image/product/3.8lit.png") : props.data.item.type == "5" ?
+                props.data.item.size == "200" ?
+                    require("../../image/product/200.png") : props.data.item.size == "330" ?
+                        require("../../image/product/330.png") : props.data.item.size == "600" ?
+                            require("../../image/product/600.png") : props.data.item.size == "1.5" ?
+                                require("../../image/product/1.5lit.png") : props.data.item.size == "3.8" ?
+                                    require("../../image/product/3.8lit.png") : props.data.item.size == "5" ?
                                         require("../../image/product/5lit.png") : require("../../image/product/12lit.png")
             }
 

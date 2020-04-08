@@ -1,0 +1,940 @@
+{
+	"info": {
+		"_postman_id": "753e779b-0ac8-40dc-9a10-23fe42bd3d5b",
+		"name": "Watani App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "تسجيل و تعديل بيانات العميل",
+			"item": [
+				{
+					"name": "تسجيل العميل برقم الهاتف",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\":\"osman\",\n\t\"phone\":\"0987654324\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/user_api",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"user_api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تعديل بيانات العميل",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_method\":\"PATCH\",\n\t\"phone\":\"0987654321\",\n\t\"user_name\":\"osman\",\n\t\"lat\":\"12.33\",\n\t\"lng\":\"55.99\",\n\t\"address\":\"makaa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/user_api/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"user_api",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "تسجيل و تعديل بيانات المندوب _الموزع",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "تسجيل الدخول",
+			"item": [
+				{
+					"name": "ادخال رقم الهاتف",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"phone\":\"0987654321\"\n}"
+						},
+						"url": {
+							"raw": "{{watani_url}}/login_phone",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"login_phone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ادخال الكود المرسل في الهاتف",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"phone\": \"0987654321\",\n\t\"activation_key\":\"2711\"\n}"
+						},
+						"url": {
+							"raw": "{{watani_url}}/login_phone_code",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"login_phone_code"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "التوكن",
+			"item": [
+				{
+					"name": "تحديث التوكن",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"device_type\":\"android\",\n\t\"device_token\":\"dPIINpDm7vM:APA91bE3ODC3b52GTjf3NBGoDyv8WUphM6iVQZJaehGIUlNQ0a3B9f5Q7afjQnfjbPL7gprUlg4OB5v3ihR_J4LVq1Zp84XLxD0Og1AX045IutFIgwxCJHhpt2HW08h2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/update_token_device/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"update_token_device",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "تغيير الموقع   اللوكيشن",
+			"item": [
+				{
+					"name": "تحديث الموقع",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"lat\":\"987\",\n\t\"lng\":\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/update_location/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"update_location",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ايقاف المستخدم لنفسة أو اضهارة لنفسة الاكتيفيشن",
+			"item": [
+				{
+					"name": "تحديث حالة الظهور  و اما تكون0 او 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/update_status/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"update_status",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "المنتجات",
+			"item": [
+				{
+					"name": "جلب كل المنتجات",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/product_api?language=en",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"product_api"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "جلب كل المنتجات باللغة العربية",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/product_api?language=ar",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"product_api"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "ar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "جلب كل المنتجات باللغة العربية Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/product_api",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"product_api"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "السلة",
+			"item": [
+				{
+					"name": "الاضافة للسلة",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\":\"1\",\n\t\"product_id\":\"3\",\n\t\"number_product\":\"4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/basket_api",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"basket_api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "الحذف من السلة",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/basket_api/3",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"basket_api",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "عرض المنتجات التي في سلة العميل",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/basket_user/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"basket_user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "التحقق من الكوبون",
+			"item": [
+				{
+					"name": "اختبار الكوبون و ذلك بإدخال رمز الكوبون و المبلغ المراد الخصم منة",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"coupon_code\":\"sder\",\n\t\"amount\":\"100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/check_coupon",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"check_coupon"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "الطلبات",
+			"item": [
+				{
+					"name": "الطلبات المجدولة",
+					"item": [
+						{
+							"name": "عرض الطلبات المجدولة  برقم العميل النشط حاليا",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{watani_url}}/my_schedule_order/1",
+									"host": [
+										"{{watani_url}}"
+									],
+									"path": [
+										"my_schedule_order",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "الغاء جدولة الطلب برقم الطلب",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{watani_url}}/cancel_order_schedule/1",
+									"host": [
+										"{{watani_url}}"
+									],
+									"path": [
+										"cancel_order_schedule",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "عنوان المستخدم",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "اضافة طلب",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"language\":\"en\",\n\t\"user_id\":\"1\",\n\t\"coupon_code\":\"\",\n\t\n\t\"coupon_amount\":\"0\",\n\t\n\t\"payment_way\":\"1\",\n\t\n\t\n\t\n\t\"scheduled_type\":\"2week\",\n\t\"city\":\"geda\",\n\t\"section\":\"g4\",\n\t\"address\":\"hggff\",\n\t\"lat\":\"23.11\",\n\t\"lng\":\"43.22\",\n\t\"time_schedule_delivery\":\"19:50:13\",\n\t\n\t\n\t\n\t\"time_delivery\":\"19:50:13\",\n\t\"delivery_period\":\"morning\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/order_api",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"order_api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "عرض بيانات الطلب برقم الطلب",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/order_api/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"order_api",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "عرض طلباتي",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/my_order/1",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"my_order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "جدولة الطلبات",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/schedule_order",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"schedule_order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "تواصل معنا",
+			"item": [
+				{
+					"name": "تواصل معنا",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"name\":\"osman\",\n\t\"email\":\"os@gmail.com\",\n\t\"phone\":\"099877654\",\n\t\"description\":\"oooooo ooooo oooooo ooooooo oooooooo ooooo \"\n\t\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/contact",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "التقييم للمنتجات والسرعة و المندوب",
+			"item": [
+				{
+					"name": "تقييم سرعة التوصيل",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\":\"1\",\n\t\"order_id\":\"1\",\n\t\"stars\":\"5\",\n\t\"comment\":\"xxxxxxxxxxxx\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/speed_order_evaluation",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"speed_order_evaluation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تقييم  المنتجات",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\":\"1\",\n\t\"order_id\":\"1\",\n\t\"product_id\":\"1\",\n\t\"stars\":\"5\",\n\t\"comment\":\"xxxxxxxxxxxx\"\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/product_evaluation",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"product_evaluation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تقييم  المندوب",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\":\"1\",\n\t\"order_id\":\"1\",\n\t\"delivery_user_id\":\"2\",\n\t\"stars\":\"5\",\n\t\"comment\":\"xxxxxxxxxxxx\"\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/user_delivery_evaluation",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"user_delivery_evaluation"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "العنوان",
+			"item": [
+				{
+					"name": "اضافة عنوان",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\":\"4\",\n\t\"city_id\":\"3\",\n\t\"section_id\":\"3\",\n\t\"address\":\"الفيصلية\",\n\t\"lat\":\"23\",\n\t\"lng\":\"455\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/address_api",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"address_api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "استعراض عنوان العميل النشط",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/my_address/2",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"my_address",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "نعديل عنوان العميل النشط و ذلك بإدخال رقم المستخدم في الهيدر و باقي البيانات في البودي",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_method\":\"Patch\",\n\t\"city_id\":\"3\",\n\t\"section_id\":\"3\",\n\t\"address\":\"الفيصلية\",\n\t\"lat\":\"23\",\n\t\"lng\":\"455\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{watani_url}}/address_api/4",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"address_api",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "العروض",
+			"item": [
+				{
+					"name": "عرض الكوبونات النشطة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/show_valid_coupon",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"show_valid_coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "عرض كوبوناتي النشطة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/show_valid_my_coupon/2",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"show_valid_my_coupon",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "الاعلانات",
+			"item": [
+				{
+					"name": "عرض الاعلانات",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/advertizement",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"advertizement"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "نسخة التطبيق ",
+			"item": [
+				{
+					"name": "نسخة التطبيق",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/get_version",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"get_version"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "passport auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@admin.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{watani_url}}/api/login",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{watani_url}}/api/logout",
+							"host": [
+								"{{watani_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "http://localhost/learning_services/public/oauth/token Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"grant_type\" : \"password\",\n\t\"client_id\" : \"2\",\n\t\"client_secret\" : \"3kxwvAFDyrTtQUZT913OIVJIaSubOshZGcm2TXFo\",\n\t\"username\" : \"data@gmail.com\",\n\t\"password\" : \"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/learning_services/public/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"learning_services",
+						"public",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

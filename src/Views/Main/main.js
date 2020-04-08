@@ -13,7 +13,7 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import Screen from '../../HOC/Screen'
 import { connect } from 'react-redux'
 import { Product } from "../../component"
-import { addToCart ,decrease } from '../../action/MainActions'
+import { addToCart ,decrease , getProduct } from '../../action/MainActions'
 class main extends Component {
 
     constructor(props) {
@@ -38,7 +38,10 @@ class main extends Component {
             ]
         }
     }
-
+    componentDidMount(){
+        console.log("ksdfs")
+        this.props.getProduct("ar")
+    }
     addToCartData = (data) => {
         // console.log("fuck"+data)
         // console.log(data)
@@ -151,6 +154,6 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = {
-    addToCart  , decrease
+    addToCart  , decrease , getProduct 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(main);
