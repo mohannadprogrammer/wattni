@@ -156,6 +156,7 @@ export default class index extends Component {
 
                             <Button
                                 name="تنفيذ الطلب"
+                                onClick={()=>this.props.navigation.navigate("orderState")}
                             >
 
                             </Button>
