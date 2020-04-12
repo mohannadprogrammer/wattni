@@ -2,23 +2,27 @@ import React, { Component } from 'react';
 import { 
     View
     ,Image
-    ,StyleSheet} from 'react-native';
+    ,StyleSheet
+    ,ImageBackground
+} from 'react-native';
 
 
 const Adv = (props) => {
     
-    return <View style={style.container}>
-        <Image style={{height:150,width:150}}  
-            source={require('../image/logo.png')}
+    return <ImageBackground
+    source={require('../image/adv.png')}
+    style={style.container}>
+        <View style={{height:150,width:150}}  
+            
            />
-
+        
         {props.children}
 
         <Image style={{height:260,width:200}}  
             resizeMode="contain"
             source={require('../image/water.png')}
            />
-    </View>;
+    </ImageBackground>;
 };
 
 const colors = require('../assest/colors');

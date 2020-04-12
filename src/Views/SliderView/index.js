@@ -20,14 +20,30 @@ export default class SliderView extends Component {
                   title:"nihs",
                   image:"../image/temp/3.png"
             }
+            ,{
+              key:"4",
+              title:"nihs",
+              image:"../image/temp/4.png"
+        }
             ]
       }
   }
-  _renderItem  =props=>(
-         <ImageBackground style={styles.container}  resizeMode="stretch" source={require("../../image/logo.png")}>
+  
+  _renderItem  =(props)=>{
+    let images = [
+      require("../../image/temp/1.png"),
+      require("../../image/temp/2.png"),
+      require("../../image/temp/3.png"),
+
+      require("../../image/temp/4.png"),
+      
+  ]
+  console.log(props);
+    return (
+         <ImageBackground style={styles.container}  resizeMode="stretch" source={images[props.index]}>
            
          </ImageBackground>
-  );
+  )};
   _next =()=>(
     <View >
     <Text style={styles.text}>تخطي</Text>
