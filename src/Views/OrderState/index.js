@@ -115,6 +115,8 @@ export default class index extends Component {
                                 </OrderMassage>
 
                                 <Button
+                                onClick={()=>this.props.navigation.navigate("main")}
+
                                     name="عودة الى الرئسية">
 
                                 </Button>

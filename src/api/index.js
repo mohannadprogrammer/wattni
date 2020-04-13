@@ -9,8 +9,28 @@ export function getProductApi (langang) {
     axios.get(`${URL}/product_api?language=${langang}`))
 }
 
-export function Registaration (username, password) {
-    console.log(`${URL} /admin/login`)
-    return (
-      axios.post(`${URL}/user/login`, { username, password }))
+
+//login and registration 
+export function Login (phone) {
+  console.log(`${URL} /`)
+  return (
+    axios.post(`${URL}/login_phone`, { phone}))
 }
+export function LoginConfiramtion (phone  , ) {
+  console.log(`${URL} /`)
+  return (
+    axios.post(`${URL}/login_phone_code`, { phone ,activation_key }))
+}
+export function Registaration (user_name, phone) {
+    // console.log(`${URL} /admin/login`)
+    return (
+      axios.post(`${URL}/user_api`, { user_name, phone }))
+}
+export function updateUserInformation  (id ,userData) {
+  // console.log(`${URL} /admin/login`)
+  return (
+    axios.post(`${URL}/user_api/`+id,userData))
+}
+
+
+//
