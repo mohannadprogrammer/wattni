@@ -1,5 +1,5 @@
 const ProductInitialState = {
-    products:[
+    products: [
         // {
         //     key:1,
         //     price: "100",
@@ -64,8 +64,9 @@ const ProductInitialState = {
         //     qunaty: "24"
         //     ,count:0
         // },
-    ]
-    
+    ],
+    loader: true
+
 }
 const actionType = require("../../action")
 
@@ -74,20 +75,21 @@ export default Product = (state = ProductInitialState, action) => {
     switch (action.type) {
         case actionType.getProduct:
             action.payload.forEach(element => {
-                state.products.push({...element,count:0})
+                state.products.push({ ...element, count: 0 })
             });
             // action.payload.count++
             // for (let  ob :action.payload){
 
             // }
+            state.loader = false
             // state.products=action.payload 
-            return {...state}
+            return { ...state }
         case actionType.addToCart:
             action.payload.count++
-            return {...state}
+            return { ...state }
         case actionType.decrease:
             action.payload.count--
-            return {...state}
+            return { ...state }
         default:
             return state
     }

@@ -7,7 +7,9 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { connect } from "react-redux";
 import { getData, setPhone, login } from '../../action/RegistartionActions'
+import { startLoading, stopLoading } from '../../action/MainActions'
 
+import Loader from 'react-native-loading-spinner-overlay'
 
 const mapStateToProps = (state) => ({
 
@@ -16,7 +18,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    getData, setPhone, login
+    getData, setPhone, login, startLoading, stopLoading
 }
 
 
@@ -26,10 +28,15 @@ class index extends Component {
         return (
             <Screen>
                 <View style={styles.container}>
+
                     <View style={styles.Boxcontainer}>
 
                         <Text style={styles.text}>لأكمال التسجيل نرجوا ادخال رقم الجوال</Text>
                         <View style={styles.inputHolder}>
+                            {/* <Loader
+                                visible={this.props.data.Loader.loader}
+                                textContent={'تسجيل دخول...'}
+                                textStyle={{ color: "#FFF" }} /> */}
                             <TextInput
                                 keyboardType='numeric'
                                 maxLength={10}
@@ -47,14 +54,17 @@ class index extends Component {
 
                     <TouchableOpacity style={styles.button}
                         onPress={async () => {
+                            this.props.startLoading();
                             await this.props.login(this.props.data.regist.phone);
                             if (this.props.data.regist.status == 1) {
 
                                 this.props.navigation.navigate("confirm")
                             } else {
+
                                 Alert.alert("",
                                     "عذرا رقم الهاتف غير موجود")
                             }
+                            this.props.stopLoading();
                         }}
 
                     >

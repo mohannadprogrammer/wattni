@@ -4,5 +4,7 @@ module.exports = {
     addToCart: "ADD_TO_CART",
     decrease: "DECRESE",
     getProduct: 'GET_PRODUCT',
-    login: 'LOGIN'
+    login: 'LOGIN',
+    startLoading: "START_LOADING",
+    stopLoading: "STOP_LOADING"
 }

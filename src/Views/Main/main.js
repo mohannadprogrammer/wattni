@@ -13,13 +13,16 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import Screen from '../../HOC/Screen'
 import { connect } from 'react-redux'
 import { Product } from "../../component"
-import { addToCart ,decrease , getProduct } from '../../action/MainActions'
+import { addToCart, decrease, getProduct, startLoading, stopLoading } from '../../action/MainActions'
+
+import Loader from 'react-native-loading-spinner-overlay'
 class main extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
+            visible: true,
             data: [
                 {
                     key: "1",
@@ -38,9 +41,15 @@ class main extends Component {
             ]
         }
     }
-    componentDidMount(){
-        console.log("ksdfs")
-        this.props.getProduct("ar")
+    loading = async (lod) => {
+        this.props.startLoading();
+        await lod('ar');
+        // this.props.getProduct("ar")
+        this.props.stopLoading()
+    }
+    componentDidMount() {
+        this.loading(this.props.getProduct);
+
     }
     addToCartData = (data) => {
         // console.log("fuck"+data)
@@ -48,7 +57,7 @@ class main extends Component {
         this.props.addToCart(data)
         // this.render()
     }
-    decreaseData =(data)=>{
+    decreaseData = (data) => {
         this.props.decrease(data)
     }
     _renderItem = props => (
@@ -74,17 +83,20 @@ class main extends Component {
                     <Text style={styles.pageNameText} >المنتجات</Text>
 
                 </View>
-
+                <Loader
+                    visible={this.props.data.Loader.loader}
+                    textContent={'جاري انزال المنتجات ...'}
+                    textStyle={{ color: "#FFF" }} />
                 <SafeAreaView style={{ flex: 1 }} >
                     <FlatList
                         style={{ flex: 1, backgroundColor: "red" }}
                         ListHeaderComponent={
                             <View style={styles.sliderViewContainer} >
-                                <AppIntroSlider 
+                                <AppIntroSlider
                                     slides={this.state.data}
                                     dotStyle={{ backgroundColor: colors.green_color2 }}
-                                    activeDotStyle={{backgroundColor:"#2ecc71"}}
-                                    renderNextButton={ ()=>(<View><View></View></View>)}
+                                    activeDotStyle={{ backgroundColor: "#2ecc71" }}
+                                    renderNextButton={() => (<View><View></View></View>)}
 
                                     renderItem={this._renderItem} />
                             </View>
@@ -98,9 +110,10 @@ class main extends Component {
                             <View style={[{ marginLeft: 0 }]} />
                         )}
                         renderItem={(item, index, separator) => (
+
                             <Product
                                 increase={this.addToCartData.bind(this, item.item)}
-                                decrease={this.decreaseData.bind(this,item.item)}
+                                decrease={this.decreaseData.bind(this, item.item)}
                                 data={item}
 
                             />
@@ -154,6 +167,6 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = {
-    addToCart  , decrease , getProduct 
+    addToCart, decrease, getProduct, startLoading, stopLoading
 }
 export default connect(mapStateToProps, mapDispatchToProps)(main);
