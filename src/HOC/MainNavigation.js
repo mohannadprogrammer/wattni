@@ -96,7 +96,7 @@ function MainNavigation(props) {
   return (
 
     <Tab.Navigator
-      
+
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name == "المنتجات")
@@ -114,7 +114,7 @@ function MainNavigation(props) {
         tabBarLabel: () => (<View>
           <Text style={{ color: colors.currance }}>{route.name}</Text>
         </View>),
-        
+
       })}
 
       initialRouteName="المنتجات"

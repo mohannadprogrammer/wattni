@@ -33,10 +33,22 @@ class index extends Component {
                                 space={30}
                                 size={15}
                                 className='border-b'
-                                compareWithCode='1233'//{this.props.data.regist.code}
+                                compareWithCode="1234"//{this.props.data.regist.code === "" ? "1234" : this.props.data.regist.code}
                                 autoFocus={false}
                                 codeInputStyle={{ flex: 0, justifyContent: "center", borderColor: "gray", fontWeight: '800', color: "black" }}
-                                onFulfill={(isValid, code) => alert("sldlfsd")}
+                                onFulfill={(isValid, code) => {
+                                    // console.log(code);
+                                    if (code == this.props.data.regist.code) {
+                                        alert("تمت العملية بنجاح ")
+                                        this.props.navigation.navigate("payment")
+
+                                    }
+                                    else {
+                                        alert("الرقم غير صحيح حاول مرة اخرى")
+
+                                    }
+
+                                }}
                             />
                             <Icon name="phone" size={30} color={colors.green_color} style={{ alignItems: "center" }} />
 
@@ -49,7 +61,7 @@ class index extends Component {
                     ></Button> */}
                     <TouchableOpacity style={styles.button}
 
-                        onPress={() => { this.props.navigation.navigate("payment") }}
+                    // onPress={() => { this.props.navigation.navigate("payment") }}
                     >
                         <Text style={styles.Buttontext}>متابعة</Text>
                     </TouchableOpacity>
