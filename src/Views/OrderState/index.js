@@ -33,6 +33,7 @@ const customStyles = {
     stepIndicatorLabelCurrentColor: colors.green_color2,
     stepIndicatorCurrentColor: colors.green_color2,
 
+    separatorStrokeStyle: 'dashed',
     stepStrokeWidth: 3,
     stepStrokeFinishedColor: colors.green_color2,
     stepStrokeUnFinishedColor: colors.green_color,
@@ -52,9 +53,9 @@ export default class index extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          currentPosition: 2
+            currentPosition: 2
         }
-      }
+    }
     render() {
         const checked = true
 
@@ -82,43 +83,43 @@ export default class index extends Component {
                             labels={labels}
                         />
                         <OrderOps
-                                    title="تفاصيل الطلب"
-                                >
-                                    <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View>
+                            title="تفاصيل الطلب"
+                        >
+                            <View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View>
 
-                                </OrderOps>
-                                <OrderMassage
-                                    title="مبروك"
-                                >
-                                    <View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View><View style={{ alignItems: 'center' }}>
-                                        <Text>This is the content within step 2!</Text>
-                                    </View>
+                        </OrderOps>
+                        <OrderMassage
+                            title="مبروك"
+                        >
+                            <View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View><View style={{ alignItems: 'center' }}>
+                                <Text>This is the content within step 2!</Text>
+                            </View>
 
-                                </OrderMassage>
+                        </OrderMassage>
 
-                                <Button
-                                    name="عودة الى الرئسية">
+                        <Button
+                            name="عودة الى الرئسية">
 
-                                </Button>
-                        
+                        </Button>
+
                     </View>
                 </ScrollView>
             </Screen>
@@ -132,12 +133,12 @@ export default class index extends Component {
             require("../../image/ordreState/Confirm.png"),
 
             require("../../image/ordreState/create.png"),
-            
+
         ]
         return (
-            <View style={{ flex: 1, justifyContent:"center",alignItems:"center" }}>
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                 <Image source={images[params.position]} resizeMode="center" style={{ height: 50, width: 50 }} />
-              </View>
+            </View>
         )
     }
 
@@ -170,8 +171,8 @@ const styles = StyleSheet.create({
         width: '100%',
     }, wrapper: {
         flex: 1,
-        margin:20,
+        margin: 20,
     },
 })
 
-{/*  */}
+{/*  */ }
