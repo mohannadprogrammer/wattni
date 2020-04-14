@@ -27,7 +27,7 @@ export function Registaration (user_name, phone) {
       axios.post(`${URL}/user_api`, { user_name, phone }))
 }
 export function updateUserInformation  (id ,userData) {
-  // console.log(`${URL} /admin/login`)
+ 
   return (
     axios.post(`${URL}/user_api/`+id,userData))
 }
