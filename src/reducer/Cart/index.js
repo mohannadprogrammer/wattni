@@ -4,6 +4,7 @@ const ProductInitialState = {
     
             
     ],
+
     
     
 }
@@ -17,10 +18,7 @@ export default Cart = (state = ProductInitialState, action) => {
     switch (action.type) {
         case actionType.addToCart:
             let v =state.products.find((value,index,object)=>{
-                    return value.id ===action.payload.id 
-
-                    
-                 
+                    return value.id ===action.payload.id    
             });
 
             // console.log("V= ",v)
