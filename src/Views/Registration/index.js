@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TextInput,TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, TextInput, TouchableOpacity, Alert } from 'react-native'
 import Screen from "../../HOC/Screen"
 import {
-    Button 
-}from "../../component"
+    Button
+} from "../../component"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { connect } from "react-redux";
-import {getData, setPhone} from '../../action/RegistartionActions'
+import { getData, setPhone, login } from '../../action/RegistartionActions'
 
 
 const mapStateToProps = (state) => ({
-    
-        data: state
-    
+
+    data: state
+
 })
 
 const mapDispatchToProps = {
-    getData, setPhone
+    getData, setPhone, login
 }
 
 
@@ -25,34 +25,43 @@ class index extends Component {
         console.log(this.props.data)
         return (
             <Screen>
-            <View style={styles.container}>
-                <View style={styles.Boxcontainer}>
+                <View style={styles.container}>
+                    <View style={styles.Boxcontainer}>
 
-                    <Text style={styles.text}>لأكمال التسجيل نرجوا ادخال رقم الجوال</Text>
-                    <View style={styles.inputHolder}>
-                        <TextInput
-                         keyboardType = 'numeric'
-                         maxLength={10}
-                            style={{textAlign: 'right'}}
-                            placeholder='05xxxxxxxx'
-                            onChange={(e)=>{
-                                // console.log(e.nativeEvent.text)
-                                this.props.setPhone(e.nativeEvent.text) 
-                            }}
-                        />
-                        <Icon name="phone" size={30} color={colors.green_color}  style={{alignItems:"center"}}/>
+                        <Text style={styles.text}>لأكمال التسجيل نرجوا ادخال رقم الجوال</Text>
+                        <View style={styles.inputHolder}>
+                            <TextInput
+                                keyboardType='numeric'
+                                maxLength={10}
+                                style={{ textAlign: 'right', width: "80%", marginRight: 5 }}
+                                placeholder='05xxxxxxxx'
+                                onChange={(e) => {
+                                    // console.log(e.nativeEvent.text)
+                                    this.props.setPhone(e.nativeEvent.text)
+                                }}
+                            />
+                            <Icon name="phone" size={25} color={colors.green_color} style={{ alignItems: "center" }} />
+                        </View>
+                        <Text style={styles.Massagetext}>سوف يصلك كود تحقق </Text>
                     </View>
-                    <Text style={styles.Massagetext}>سوف يصلك كود تحقق </Text>
-                </View>
-                
-                <TouchableOpacity style={styles.button} 
-                    onPress={()=>{this.props.navigation.navigate("confirm")}}
-                    
-                >
-                    <Text style={styles.Buttontext}>متابعة</Text>
-                </TouchableOpacity>
 
-            </View>
+                    <TouchableOpacity style={styles.button}
+                        onPress={async () => {
+                            await this.props.login(this.props.data.regist.phone);
+                            if (this.props.data.regist.status == 1) {
+
+                                this.props.navigation.navigate("confirm")
+                            } else {
+                                Alert.alert("",
+                                    "عذرا رقم الهاتف غير موجود")
+                            }
+                        }}
+
+                    >
+                        <Text style={styles.Buttontext}>متابعة</Text>
+                    </TouchableOpacity>
+
+                </View>
             </Screen>
         )
     }
@@ -68,7 +77,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        padding:160
+        padding: 160
     },
     Boxcontainer: {
         flex: 0,
@@ -80,45 +89,47 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         height: 230,
         width: 350,
-        padding:20,
+        padding: 20,
 
         margin: 40,
     },
     inputHolder: {
         flex: 0,
         flexDirection: "row",
-        justifyContent:"flex-end",
+        justifyContent: "flex-end",
+        alignItems: "center",
         borderColor: colors.gray,
         borderWidth: 2,
         borderRadius: 5,
         height: 50,
         width: 300,
-         
+        padding: 5
+
         // textAlign:"left"
     },
     button: {
-        flex:0,
-        alignItems:"center",
-        justifyContent:"center",
+        flex: 0,
+        alignItems: "center",
+        justifyContent: "center",
         color: "red",//colors.green_color,
         fontSize: 50,
         backgroundColor: colors.green_color2,
         height: 40,
         width: 130,
         //border
-        borderRadius:5
+        borderRadius: 5
 
     },
-    text:{
-        color:colors.green_color,
-        fontSize:15  
+    text: {
+        color: colors.green_color,
+        fontSize: 15
     },
-    Massagetext:{
-        color:colors.green_color2,
-        fontSize:15  
+    Massagetext: {
+        color: colors.green_color2,
+        fontSize: 15
     },
-    Buttontext:{
-        color:"#fff",
-        fontSize:25
+    Buttontext: {
+        color: "#fff",
+        fontSize: 25
     }
 })

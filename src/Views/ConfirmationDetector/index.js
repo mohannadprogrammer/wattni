@@ -3,9 +3,21 @@ import { Text, StyleSheet, View, TextInput, TouchableOpacity } from 'react-nativ
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import CodeInput from 'react-native-confirmation-code-input'
-import {Button} from '../../component'
+import { Button } from '../../component'
 import Screen from '../../HOC/Screen'
-export default class index extends Component {
+import { connect } from "react-redux";
+
+
+const mapStateToProps = (state) => ({
+
+    data: state
+
+})
+const mapDispatchToProps = {
+
+}
+//export default 
+class index extends Component {
     render() {
         return (
             <Screen>
@@ -21,7 +33,7 @@ export default class index extends Component {
                                 space={30}
                                 size={15}
                                 className='border-b'
-                                compareWithCode='1234'
+                                compareWithCode='1233'//{this.props.data.regist.code}
                                 autoFocus={false}
                                 codeInputStyle={{ flex: 0, justifyContent: "center", borderColor: "gray", fontWeight: '800', color: "black" }}
                                 onFulfill={(isValid, code) => alert("sldlfsd")}
@@ -35,8 +47,8 @@ export default class index extends Component {
                         name="متابعة"
                         onClick={() => { this.props.navigation.navigate("payment") }}
                     ></Button> */}
-                    <TouchableOpacity style={styles.button}  
-                    
+                    <TouchableOpacity style={styles.button}
+
                         onPress={() => { this.props.navigation.navigate("payment") }}
                     >
                         <Text style={styles.Buttontext}>متابعة</Text>
@@ -48,6 +60,8 @@ export default class index extends Component {
         )
     }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(index)
+
 const colors = require("../../assest/colors")
 const styles = StyleSheet.create({
 
