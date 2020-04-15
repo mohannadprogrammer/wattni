@@ -28,7 +28,7 @@ export async function startLoading(data) {
     payload: data,
   };
 }
-export async function stopLoading(data) {
+export async function stopLoading() {
   return {
     type: ActionTypes.stopLoading,
     payload: data,

@@ -65,7 +65,7 @@ const ProductInitialState = {
         //     ,count:0
         // },
     ],
-    loader: true
+    // loader: true
 
 }
 const actionType = require("../../action")

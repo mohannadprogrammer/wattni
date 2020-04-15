@@ -15,7 +15,6 @@ import { connect } from 'react-redux'
 import { Product } from "../../component"
 import { addToCart, decrease, getProduct, startLoading, stopLoading } from '../../action/MainActions'
 
-import Loader from 'react-native-loading-spinner-overlay'
 class main extends Component {
 
     constructor(props) {
@@ -42,13 +41,15 @@ class main extends Component {
         }
     }
     loading = async (lod) => {
-        this.props.startLoading();
+        this.props.startLoading("جاري تحميل البيانات ...");
         await lod('ar');
         // this.props.getProduct("ar")
         this.props.stopLoading()
     }
     componentDidMount() {
-        this.loading(this.props.getProduct);
+        // this.loading(this.props.getProduct);
+        this.props.getProduct("ar")
+
 
     }
     addToCartData = (data) => {
@@ -83,10 +84,7 @@ class main extends Component {
                     <Text style={styles.pageNameText} >المنتجات</Text>
 
                 </View>
-                <Loader
-                    visible={this.props.data.Loader.loader}
-                    textContent={'جاري انزال المنتجات ...'}
-                    textStyle={{ color: "#FFF" }} />
+
                 <SafeAreaView style={{ flex: 1 }} >
                     <FlatList
                         style={{ flex: 1, backgroundColor: "red" }}

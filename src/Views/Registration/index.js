@@ -33,10 +33,7 @@ class index extends Component {
 
                         <Text style={styles.text}>لأكمال التسجيل نرجوا ادخال رقم الجوال</Text>
                         <View style={styles.inputHolder}>
-                            {/* <Loader
-                                visible={this.props.data.Loader.loader}
-                                textContent={'تسجيل دخول...'}
-                                textStyle={{ color: "#FFF" }} /> */}
+
                             <TextInput
                                 keyboardType='numeric'
                                 maxLength={10}
