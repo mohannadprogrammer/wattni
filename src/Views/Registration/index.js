@@ -51,7 +51,7 @@ class index extends Component {
 
                     <TouchableOpacity style={styles.button}
                         onPress={async () => {
-                            this.props.startLoading();
+                            // this.props.startLoading();
                             await this.props.login(this.props.data.regist.phone);
                             if (this.props.data.regist.status == 1) {
 
@@ -61,7 +61,7 @@ class index extends Component {
                                 Alert.alert("",
                                     "عذرا رقم الهاتف غير موجود")
                             }
-                            this.props.stopLoading();
+                            // this.props.stopLoading();
                         }}
 
                     >

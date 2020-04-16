@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider'
 import Screen from '../../HOC/Screen'
+
+import { Bars } from 'react-native-loader'
 import { connect } from 'react-redux'
 import { Product } from "../../component"
 import { addToCart, decrease, getProduct, startLoading, stopLoading } from '../../action/MainActions'
@@ -40,6 +42,7 @@ class main extends Component {
             ]
         }
     }
+
     loading = async (lod) => {
         this.props.startLoading("جاري تحميل البيانات ...");
         await lod('ar');
@@ -48,7 +51,8 @@ class main extends Component {
     }
     componentDidMount() {
         // this.loading(this.props.getProduct);
-        this.props.getProduct("ar")
+        if (this.props.data.Product.products.length === 0)
+            this.props.getProduct("ar")
 
 
     }
@@ -78,14 +82,12 @@ class main extends Component {
         >
             <View style={styles.container}>
 
-                <View style={styles.pageName}
-
-                >
+                <View style={styles.pageName}>
                     <Text style={styles.pageNameText} >المنتجات</Text>
-
                 </View>
-
                 <SafeAreaView style={{ flex: 1 }} >
+
+
                     <FlatList
                         style={{ flex: 1, backgroundColor: "red" }}
                         ListHeaderComponent={
@@ -97,13 +99,15 @@ class main extends Component {
                                     renderNextButton={() => (<View><View></View></View>)}
 
                                     renderItem={this._renderItem} />
+                                {/* <Bars color={colors.green_color2} style={{ flex: 1, alignSelf: "center" }} /> */}
                             </View>
                         }
 
                         data={this.props.data.Product.products}
                         style={{ top: 5 }}
                         numColumns={2}
-
+                        // refreshing={this.props.data.Pro}
+                        // onRefresh
                         ItemSeparatorComponent={() => (
                             <View style={[{ marginLeft: 0 }]} />
                         )}
@@ -119,6 +123,7 @@ class main extends Component {
 
 
                     />
+
                 </SafeAreaView>
 
 
