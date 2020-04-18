@@ -47,7 +47,10 @@ class index extends Component {
                                             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
                                         >
                                             {check ? <Text style={{ color: "red" }}>يجب ان يكون عدد المنتجات اكثر من 10</Text> : null}
-                                            <Button name="أضافة عناصر">
+                                            <Button name="أضافة عناصر"
+                                                onClick={() => this.props.navigation.navigate("navigation")}
+
+                                            >
                                             </Button>
 
                                             <Dilervary></Dilervary>
