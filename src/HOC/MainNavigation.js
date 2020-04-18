@@ -62,18 +62,13 @@ function MainStack(props) {
 
   return (
     <NavigationContainer>
-      <StatusBar
-        color={colors.green_color2}
-        style={{ color: colors.green_color2 }}
-      />
       <Stack.Navigator
         headerMode="none"
-
       >
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
-        {/* <Stack.Screen name="language" component={Payment} /> */}
-        <Stack.Screen name="language" component={LanguageSellector} />
+        <Stack.Screen name="language" component={Payment} />
+        {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
         {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
         {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
         {/* <Stack.Screen name="navigatio7n" component={MainNavigation} /> */}
@@ -121,6 +116,8 @@ function MainNavigation(props) {
       tabBarOptions={{
         inactiveTintColor: '#fff',
         activeTintColor: "#fff",
+        drawBehind: true,
+
         tabStyle: {
           backgroundColor: colors.green_color2,
           borderLeftColor: "#fff",

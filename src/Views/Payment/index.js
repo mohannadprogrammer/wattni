@@ -15,20 +15,41 @@ import {
     Button
 } from '../../component'
 import { RadioButton } from 'react-native-paper'
-import { FlatList } from 'react-native-gesture-handler'
-const orderInfo = (item, index, separator) => {
+import { connect } from 'react-redux'
 
-    return <View style={{ flex: 1, flexDirection: "row-reverse", marginBottom: 5 }}>
+const mapStateToProps = (state) => ({
 
-        <Text style={{ flex: 1, borderLeftColor: colors.green_color, borderLeftWidth: 1, color: colors.green_color, }}>مياة وطني 200 مل </Text>
-        <Text style={{ flex: 1, color: colors.green_color2, marginRight: 10 }}>10 كراتين</Text>
+    data: state.payment.response
+
+})
+
+const mapDispatchToProps = {
+    // getData, setPhone, login, startLoading, stopLoading
+}
+
+
+const orderInfo = (element) => {
+
+    return <View key={element.id} style={{ flex: 1, flexDirection: "row-reverse", marginBottom: 5 }}>
+
+        <Text style={{ flex: 1, borderLeftColor: colors.green_color, borderLeftWidth: 1, color: colors.green_color, }}>{element.product_name} </Text>
+        <Text style={{ flex: 1, color: colors.green_color2, marginRight: 10 }}>{element.number_product} كراتين</Text>
     </View>;
 };
-export default class index extends Component {
+//export default 
+class index extends Component {
+    state = {
+        data: [
+            { key: 1 },
+            { key: 2 }
 
+        ],
+        checked: 'kash',
+        radioValue: 2
+    }
     render() {
-        const checked = true
-
+        const checked = this.state.checked
+        console.log(this.props.data)
         return (
             <Screen
                 name="دفع"
@@ -36,7 +57,7 @@ export default class index extends Component {
                     this.props.navigation.navigate("chart");
                 }}
             >
-                <ScrollView>
+                <ScrollView >
                     <View style={styles.body}>
                         <View style={styles.wrapper}>
                             <MassageCard
@@ -48,35 +69,38 @@ export default class index extends Component {
                                 <View style={styles.details}>
                                     <View>
                                         <Text style={styles.title}>تفاصيل الطلب </Text>
-                                        <FlatList
+                                        {/* <SafeAreaView> */}
+                                        {this.props.data.data.map(element => orderInfo(element))}
+                                        {/* <FlatList
                                             style={{ flex: 1 }}
                                             data={[
                                                 { key: 1 },
                                                 { key: 2 }
 
                                             ]}
+                                            // scrollEnabled={true}
                                             renderItem={(item, index, separator) => orderInfo(item, index, separator)}
-                                        />
-
+                                        /> */}
+                                        {/* </SafeAreaView> */}
                                     </View>
                                     <View>
                                         <Text style={styles.title}>قيمة الطلب</Text>
-                                        <Text style={styles.priceNum}> 300.00 <Text style={styles.currancy}> ر.س</Text></Text>
+                                        <Text style={styles.priceNum}>{this.props.data.total_product_price} <Text style={styles.currancy}> ر.س</Text></Text>
 
                                     </View>
                                     <View>
                                         <Text style={styles.title}>رسوم التوصيل </Text>
-                                        <Text style={styles.priceNum}> 16.0 <Text style={styles.currancy}> ر.س</Text></Text>
+                                        <Text style={styles.priceNum}> {this.props.data.price_delivery} <Text style={styles.currancy}> ر.س</Text></Text>
 
                                     </View>
                                     <View>
                                         <Text style={styles.title}>القيمة المضافة</Text>
-                                        <Text style={styles.priceNum}> 5.8 <Text style={styles.currancy}> ر.س</Text></Text>
+                                        <Text style={styles.priceNum}>{this.props.data.vat_money} <Text style={styles.currancy}> ر.س</Text></Text>
 
                                     </View>
                                     <View>
                                         <Text style={styles.title}>قيمة الخصم</Text>
-                                        <Text style={styles.priceNum}> 20.00 <Text style={styles.currancy}> ر.س</Text></Text>
+                                        <Text style={styles.priceNum}> {this.props.data.sum_catoon} <Text style={styles.currancy}> ر.س</Text></Text>
 
                                     </View>
 
@@ -84,14 +108,14 @@ export default class index extends Component {
                                 <View style={styles.total}>
                                     <Text style={{ fontSize: 25, color: colors.green_color }}>الاجمالي</Text>
                                     <View style={{
-                                          borderColor:colors.green_color,
-                                          borderRadius: 15,
-                                          borderWidth:1,
-                                          padding:5,
-                                          marginRight:15
+                                        borderColor: colors.green_color,
+                                        borderRadius: 15,
+                                        borderWidth: 1,
+                                        padding: 5,
+                                        marginRight: 15
                                         // backgroundColor:"red"
-                                         }}>
-                                        <Text style={{ fontSize: 25, color: colors.gray }} >395.00 <Text style={styles.currancy}>ر.س</Text></Text>
+                                    }}>
+                                        <Text style={{ fontSize: 25, color: colors.gray }} >{this.props.data.total} <Text style={styles.currancy}>ر.س</Text></Text>
 
                                     </View>
                                 </View>
@@ -100,9 +124,21 @@ export default class index extends Component {
                                 style={{ margin: 20 }}
                                 title="اتمام الطلب"
                             >
-                                <View style={{ flex:1,flexDirection:"row",justifyContent: "flex-end" ,paddingVertical:20 ,paddingRight:10}}>
-                                    <Text style={{flex:1 , color:colors.green_color , fontSize:15}}>فضلاً اختار احدي  الوسائل التالية :</Text>
+                                <View style={{ flex: 1, flexDirection: "row", justifyContent: "flex-end", paddingVertical: 20, paddingRight: 10 }}>
+                                    <Text style={{ flex: 1, color: colors.green_color, fontSize: 15 }}>فضلاً اختار احدي  الوسائل التالية :</Text>
                                 </View>
+                                <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
+                                    <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
+                                        <RadioButton
+                                            color="green"
+                                            uncheckedColor="#797979"
+                                            value="mada"
+                                            status={checked === 'kash' ? 'checked' : 'unchecked'}
+                                            onPress={() => { this.setState({ checked: 'kash', radioValue: 1 }); }}
+                                        />
+                                        <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>كاش</Text>
+                                    </View>
+                                </TouchableOpacity>
                                 <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
                                         <RadioButton
@@ -118,14 +154,14 @@ export default class index extends Component {
                                         <Image resizeMode='contain' source={require('../../image/e-pay/mada.png')}
                                             style={{ width: 60, height: 30, margin: 5 }} /></View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
+                                <TouchableOpacity onPress={() => { this.setState({ checked: 'sadad', radioValue: 3 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
                                         <RadioButton
                                             color="green"
                                             uncheckedColor="#797979"
-                                            value="mada"
-                                            status={checked === 'mada' ? 'checked' : 'unchecked'}
-                                        // onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }}
+                                            value="sadad"
+                                            status={checked === 'sadad' ? 'checked' : 'unchecked'}
+                                            onPress={() => { this.setState({ checked: 'sadad', radioValue: 3 }); }}
                                         />
                                         <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( سداد )</Text>
                                     </View>
@@ -133,21 +169,27 @@ export default class index extends Component {
                                         <Image resizeMode='contain' source={require('../../image/e-pay/sadad.png')}
                                             style={{ width: 60, height: 30, margin: 5 }} /></View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }} style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}>
+                                <TouchableOpacity
+                                    onPress={() => { this.setState({ checked: 'visa', radioValue: 4 }); }}
+                                    style={{ flexDirection: 'row-reverse', justifyContent: 'space-between', borderBottomColor: '#cccccc', borderBottomWidth: 1, width: '100%' }}
+                                >
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
                                         <RadioButton
                                             color="green"
                                             uncheckedColor="#797979"
-                                            value="mada"
-                                            status={checked === 'mada' ? 'checked' : 'unchecked'}
-                                        // onPress={() => { this.setState({ checked: 'mada', radioValue: 2 }); }}
+                                            value="visa"
+                                            status={checked === 'visa' ? 'checked' : 'unchecked'}
+                                            onPress={() => { this.setState({ checked: 'visa', radioValue: 4 }); }}
                                         />
-                                        <Text style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 14, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( visa master card )</Text>
+                                        <Text
+                                            style={{ fontFamily: 'ElMessiri-Regular', color: '#a3a3a3', fontSize: 11, marginRight: 5, marginTop: 10 }}>البطاقات الإئتمانية ( visa master card )</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-end' }}>
-                                        <Image resizeMode='contain' source={require('../../image/e-pay/visamastCard.png')}
+                                        <Image
+                                            resizeMode='contain'
+                                            source={require('../../image/e-pay/visamastCard.png')}
                                             style={{ width: 60, height: 30, margin: 5 }} />
-                                </View>
+                                    </View>
                                 </TouchableOpacity>
 
 
@@ -156,7 +198,7 @@ export default class index extends Component {
 
                             <Button
                                 name="تنفيذ الطلب"
-                                onClick={()=>this.props.navigation.navigate("orderState")}
+                                onClick={() => this.props.navigation.navigate("orderState")}
                             >
 
                             </Button>
@@ -168,6 +210,8 @@ export default class index extends Component {
         )
     }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(index)
+
 const colors = require('../../assest/colors')
 const styles = StyleSheet.create({
     body: {
@@ -181,7 +225,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         padding: 25,
-        marginVertical:10
+        marginVertical: 10
     },
     details: {
         flex: 1,
