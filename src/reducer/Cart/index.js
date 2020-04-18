@@ -1,12 +1,19 @@
 const ProductInitialState = {
-    products:[
-        
-    
-            
+    products: [
+
+        {
+            key: 8,
+            type: "5",
+            price: "100",
+            name: "مياة وطني 600 مل ",
+            qunaty: "24"
+            , count: 10
+        }
+
     ],
 
-    
-    
+
+
 }
 const actionType = require("../../action")
 
@@ -17,19 +24,19 @@ export default Cart = (state = ProductInitialState, action) => {
 
     switch (action.type) {
         case actionType.addToCart:
-            let v =state.products.find((value,index,object)=>{
-                    return value.id ===action.payload.id    
+            let v = state.products.find((value, index, object) => {
+                return value.id === action.payload.id
             });
 
             // console.log("V= ",v)
-            if (v==undefined){
-                state.products.push(action.payload)   
+            if (v == undefined) {
+                state.products.push(action.payload)
             }
             // state.products.push(action.payload)
-            return {...state}
+            return { ...state }
         case "ACTION_TYPE_2":
             return state
         default:
             return state
-    }               
+    }
 }
