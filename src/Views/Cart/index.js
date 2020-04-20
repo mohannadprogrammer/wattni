@@ -5,7 +5,7 @@ import { Cart, Button, Dilervary } from '../../component'
 
 import { connect } from 'react-redux'
 import Screen from '../../HOC/Screen'
-
+import { setData } from '../../action/Order'
 
 const mapStateToProps = (state) => {
     return {
@@ -13,12 +13,11 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = {
-    // addToCart
+    setData
 }
 class index extends Component {
     validation() {
         for (let i = 0; i < this.props.data.cart.products.length; i++) {
-            console.log("sjdkfjs")
             if (this.props.data.cart.products[i].count < 10) {
                 return true
             }
@@ -28,7 +27,7 @@ class index extends Component {
     }
     render() {
         const check = this.validation()
-        console.log("jj", check)
+        console.log("sdfkll", this.props.data.cart.addOrder)
         return (
             <Screen
                 name="سلة المشتريات"
@@ -53,7 +52,12 @@ class index extends Component {
                                             >
                                             </Button>
 
-                                            <Dilervary></Dilervary>
+                                            <Dilervary
+                                                setData={this.props.setData}
+                                                nav={this.props.navigation}
+                                            >
+
+                                            </Dilervary>
                                             <Button
                                                 onClick={() => this.props.navigation.navigate("regist")}
                                                 name="تنفيز الطلب">

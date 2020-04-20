@@ -16,8 +16,8 @@ import {
     Label,
     DatePicker,
 } from 'native-base';
-const Dilevary = () => {
-
+const Dilevary = ({ setData, ...props }) => {
+    console.log(props)
     return <View style={styles.container}>
 
         <View style={styles.title}>
@@ -26,20 +26,54 @@ const Dilevary = () => {
 
         <View style={styles.form}>
             <Item style={{ justifyContent: "flex-end" }}>
-                <Input placeholder='المدينة' style={{ textAlign: "right" }} />
+                <Input
+                    refs="city"
+
+                    placeholder='المدينة' style={{ textAlign: "right" }}
+                    onChange={(e) => {
+                        setData({ name: "city", value: e.nativeEvent.text })
+
+                    }} />
                 <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
             </Item>
             <Item style={{ justifyContent: "flex-end" }}>
-                <Input placeholder='الحي' style={{ textAlign: "right" }} />
+                <Input
+                    // ref="section"
+                    placeholder='الحي'
+                    style={{ textAlign: "right" }}
+                    onChange={(e) => {
+                        setData({ name: "section", value: e.nativeEvent.text })
+
+                    }}
+                />
                 <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
             </Item>
-            <Item style={{ justifyContent: "flex-end" }}>
-                <Input placeholder='موقع التواصبل على الخريطة' style={{ textAlign: "right" }} />
+            <View
+                onTouchStart={() => {
+                    props.nav.navigate("map")
+                    console.log("kskd");
+                }}
+                style={{ flex: 1, flexDirection: "row", justifyContent: "flex-end" }}>
+                <Input
+                    onKeyPress={() => {
+                        props.nav.navigate("map")
+                        // console.log("kskd");
+
+                    }}
+                    placeholder='موقع التواصبل على الخريطة'
+                    style={{ textAlign: "right" }}
+                // value={"sd"}
+                // onChange={(e) => {
+                //     setData({ name: "section", value: e.nativeEvent.text })
+
+                // }}
+
+                />
                 <Icon active name='location-on' type="Icons" style={{ color: colors.green_color2 }} />
 
-            </Item>
+            </View>
             <Item style={{ justifyContent: "flex-end" }}>
                 <DatePicker placeHolderText='موعد التسلم' style={{ textAlign: "right" }} />
                 <Icon active name='md-time' type="Ionicons" style={{ color: colors.green_color2 }} />
@@ -54,7 +88,7 @@ const Dilevary = () => {
                 <Body>
                     <Text style={{ color: colors.green_color2, marginHorizontal: 10 }} > مساء</Text>
                 </Body>
-                <CheckBox checked={false} color={colors.green_color2} style={{ borderRadius: 10 }} />
+                <CheckBox checked={true} color={colors.green_color2} style={{ borderRadius: 10 }} />
                 <Body>
                     <Text style={{ color: colors.green_color2, marginHorizontal: 10 }}>صباخ</Text>
                 </Body>
@@ -78,7 +112,7 @@ const Dilevary = () => {
                 <CheckBox checked={true} color={colors.green_color2} style={{ borderRadius: 10 }} />
 
                 <Body>
-                    <Text style={{ color: colors.green_color2, marginHorizontal: 7}} >كل اسبوعين</Text>
+                    <Text style={{ color: colors.green_color2, marginHorizontal: 7 }} >كل اسبوعين</Text>
                 </Body>
                 <CheckBox checked={false} color={colors.green_color2} style={{ borderRadius: 10 }} />
                 <Body>

@@ -3,6 +3,8 @@ import { View, Text, StyleSheet } from 'react-native'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import { connect } from 'react-redux'
 import Screen from '../../HOC/Screen'
+
+import { setData } from "../../action/Order"
 export class index extends Component {
   constructor(props) {
     super(props)
@@ -30,16 +32,24 @@ export class index extends Component {
       <Screen>
         <View style={styles.container}>
           <MapView
-            onPress={(coordinate) => { 
-            let newloc = this.state.location 
-            newloc.push(coordinate.nativeEvent.coordinate);
-            this.setState ({
-              location:newloc
-            }
-            
-            )
+            onPress={(coordinate) => {
+              let newloc = this.state.location
+              newloc.push(coordinate.nativeEvent.coordinate);
+              this.props.setData({
+                "lat": coordinate.nativeEvent.coordinate.latitude,
+                "lng": coordinate.nativeEvent.coordinate.longitude,
+              });
 
-          }}
+              this.setState({
+                location: newloc
+              }
+              )
+
+              setTimeout(() => {
+                this.props.navigation.navigate("chart")
+              }, 2000)
+
+            }}
 
             // onPress 
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
@@ -56,7 +66,7 @@ export class index extends Component {
               <Marker
                 key={i}
                 coordinate={mark}
-                // image ={require('../../image/logo.png')}
+              // image ={require('../../image/logo.png')}
               ></Marker>
             ))}
           </MapView>

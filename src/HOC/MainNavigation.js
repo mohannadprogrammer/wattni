@@ -52,6 +52,7 @@ function Chart(props) {
       <Stack.Screen name="regist" component={Registration} />
       <Stack.Screen name="confirm" component={ConfirmationDetector} />
 
+      <Stack.Screen name="map" component={Views.LocationDetector} />
 
 
     </Stack.Navigator>
@@ -67,7 +68,7 @@ function MainStack(props) {
       >
         {/* <Stack.Screen name="social" component={SocialMedia} /> */}
 
-        <Stack.Screen name="language" component={Cart} />
+        {/* <Stack.Screen name="language" component={Cart} /> */}
         {/* <Stack.Screen name="language" component={LanguageSellector} /> */}
         {/* <Stack.Screen name="language" component={Views.OrderState} /> */}
         {/* <Stack.Screen name="map" component={Views.LocationDetector} /> */}
@@ -76,7 +77,7 @@ function MainStack(props) {
         {/* <Stack.Screen name="regist2" component={Registration} /> */}
 
         {/* <Stack.Screen name="map" component={Test} /> */}
-        <Stack.Screen name="slider" component={SliderView} />
+        {/* <Stack.Screen name="slider" component={SliderView} /> */}
 
         <Stack.Screen name="navigation" component={MainNavigation} />
 

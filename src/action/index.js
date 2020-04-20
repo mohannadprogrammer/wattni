@@ -6,5 +6,7 @@ module.exports = {
     getProduct: 'GET_PRODUCT',
     login: 'LOGIN',
     startLoading: "START_LOADING",
-    stopLoading: "STOP_LOADING"
+    stopLoading: "STOP_LOADING",
+    setOrderData: "SET_ORDER_DATA",
+    createOder: "CREATE_ORDER",
 }

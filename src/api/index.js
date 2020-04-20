@@ -33,4 +33,9 @@ export function updateUserInformation(id, userData) {
 }
 
 
-//
+/// order apo 
+export function createOrderApi(order) {
+
+  return (
+    axios.post(`${URL}/order_api`, order))
+}

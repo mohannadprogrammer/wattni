@@ -22,7 +22,6 @@ const mapDispatchToProps = {
 
 
 const Screen = ({ name, callBack, ...props }) => {
-    console.log(props.count);
     return <View style={style.container}>
         <Header
             name={name}
