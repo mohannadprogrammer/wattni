@@ -1,7 +1,20 @@
 # wattni
-my frist opeena project : (wattni ) is an react native project application (E-commerce System )
+  It is a mobile application for selling water and delivering it to customers of a mineral water company called Watani.
+## installation process
 
-company website : http://opeena.com/m/ 
-<br/>
-company youtube channel : https://www.youtube.com/channel/UCHZaWgzCwpFBlO25iRVWP6A<br/>
-facebook page : https://web.facebook.com/opeena.it/?_rdc=1&_rdr<br/>
+### Step 1:
+clone repo 
+
+### step 2:
+install depandances \
+`
+npm install 
+`
+### Step 3:\
+
+run it for andorid  using this command \
+`npx react-native run-android`\ <br/>
+
+
+run it for ios using this command \
+`npx react-native run-ios`
