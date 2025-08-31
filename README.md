@@ -10,7 +10,7 @@ install depandances \
 `
 npm install 
 `
-### Step 3:\
+### Step 3:
 
 run it for andorid  using this command \
 `npx react-native run-android`\ <br/>
