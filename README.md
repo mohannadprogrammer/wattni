@@ -13,7 +13,7 @@ npm install
 ### Step 3:
 
 run it for andorid  using this command \
-`npx react-native run-android`\ <br/>
+`npx react-native run-android` <br/>
 
 
 run it for ios using this command \
